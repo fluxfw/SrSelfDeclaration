@@ -1,0 +1,67 @@
+{
+  "name": "srag/srselfdeclaration",
+  "description": "",
+  "version": "1.0.0",
+  "extra": {
+    "ilias_plugin": {
+      "id": "srselfdeclr",
+      "name": "SrSelfDeclaration",
+      "ilias_min_version": "5.4.0",
+      "ilias_max_version": "6.999",
+      "slot": "Services/UIComponent/UserInterfaceHook"
+    },
+    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
+  },
+  "type": "project",
+  "keywords": [
+    "ILIAS",
+    "Plugin"
+  ],
+  "homepage": "https://github.com/studer-raimann/SrSelfDeclaration",
+  "license": "GPL-3.0-only",
+  "authors": [
+    {
+      "name": "studer + raimann ag - Team Custom 1",
+      "email": "support-custom1@studer-raimann.ch",
+      "homepage": "https://studer-raimann.ch",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_PLSELDEC"
+  },
+  "require": {
+    "php": ">=7.0",
+    "srag/custominputguis": ">=0.1.0",
+    "srag/devtools": ">=0.1.0",
+    "srag/dic": ">=0.1.0",
+    "srag/generateplugininfoshelper": ">=0.1.0",
+    "srag/librariesnamespacechanger": ">=0.1.0",
+    "srag/removeplugindataconfirm": ">=0.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "srag\\Plugins\\SrSelfDeclaration\\": "src/"
+    },
+    "classmap": [
+      "classes/"
+    ],
+    "files": [
+      "vendor/srag/dic/src/PHPVersionChecker.php",
+      "vendor/srag/dic/src/Ilias7PreWarn.php"
+    ]
+  },
+  "config": {
+    "classmap-authoritative": true,
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "scripts": {
+    "pre-autoload-dump": [
+      "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
+      "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport",
+      "srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
+      "srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\GeneratePluginReadme::generatePluginReadme"
+    ]
+  }
+}

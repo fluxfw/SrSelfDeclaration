@@ -1,0 +1,471 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2caafd242735a2cf0ad5fdffad1fc8b7",
+    "packages": [
+        {
+            "name": "srag/custominputguis",
+            "version": "0.41.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
+                "reference": "cbbbb3cf2e9857db12a349bcf878192b7bb0ea18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/cbbbb3cf2e9857db12a349bcf878192b7bb0ea18",
+                "reference": "cbbbb3cf2e9857db12a349bcf878192b7bb0ea18",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "srag/dic": ">=0.1.0"
+            },
+            "require-dev": {
+                "srag/generateplugininfoshelper": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "ilias_plugin": {
+                    "ilias_min_version": "5.4.0",
+                    "ilias_max_version": "6.999"
+                },
+                "generate_plugin_readme_template": "SRAG_ILIAS_LIBRARY"
+            },
+            "autoload": {
+                "psr-4": {
+                    "srag\\CustomInputGUIs\\SrSelfDeclaration\\": "src/"
+                },
+                "classmap": [
+                    "src/MultiSelectSearchNewInputGUI/class.ObjectChildrenAjaxAutoCompleteCtrl.php",
+                    "src/MultiSelectSearchNewInputGUI/class.ObjectsAjaxAutoCompleteCtrl.php",
+                    "src/MultiSelectSearchNewInputGUI/class.OrgUnitAjaxAutoCompleteCtrl.php",
+                    "src/MultiSelectSearchNewInputGUI/class.UsersAjaxAutoCompleteCtrl.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "studer + raimann ag - Team Custom 1",
+                    "email": "support-custom1@studer-raimann.ch",
+                    "homepage": "https://studer-raimann.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Custom Input-GUI's",
+            "homepage": "https://github.com/studer-raimann/CustomInputGUIs",
+            "keywords": [
+                "ILIAS",
+                "PropertyForm",
+                "gui",
+                "input",
+                "table"
+            ],
+            "time": "2020-11-13T09:45:09+00:00"
+        },
+        {
+            "name": "srag/datatable",
+            "version": "0.30.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studer-raimann/DataTableUI.git",
+                "reference": "430f69ee0a8b7d7f39c2dda7272d39ac16559876"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studer-raimann/DataTableUI/zipball/430f69ee0a8b7d7f39c2dda7272d39ac16559876",
+                "reference": "430f69ee0a8b7d7f39c2dda7272d39ac16559876",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "srag/custominputguis": ">=0.1.0",
+                "srag/dic": ">=0.1.0",
+                "srag/librarylanguageinstaller": ">=0.1.0"
+            },
+            "require-dev": {
+                "srag/generateplugininfoshelper": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "ilias_plugin": {
+                    "ilias_min_version": "5.4.0",
+                    "ilias_max_version": "6.999"
+                },
+                "generate_plugin_readme_template": "SRAG_ILIAS_LIBRARY"
+            },
+            "autoload": {
+                "psr-4": {
+                    "srag\\DataTableUI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "studer + raimann ag - Team Custom 1",
+                    "email": "support-custom1@studer-raimann.ch",
+                    "homepage": "https://studer-raimann.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "ILIAS Data Table UI Component",
+            "homepage": "https://github.com/studer-raimann/DataTableUI",
+            "keywords": [
+                "ILIAS",
+                "table",
+                "ui"
+            ],
+            "time": "2021-01-08T08:45:39+00:00"
+        },
+        {
+            "name": "srag/devtools",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studer-raimann/DevTools.git",
+                "reference": "6d65607874fb106db3c80f9aad6e66ec0ea284f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studer-raimann/DevTools/zipball/6d65607874fb106db3c80f9aad6e66ec0ea284f2",
+                "reference": "6d65607874fb106db3c80f9aad6e66ec0ea284f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "srag/dic": ">=0.1.0",
+                "srag/librarylanguageinstaller": ">=0.1.0"
+            },
+            "require-dev": {
+                "srag/generateplugininfoshelper": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "ilias_plugin": {
+                    "ilias_min_version": "5.4.0",
+                    "ilias_max_version": "6.999"
+                },
+                "generate_plugin_readme_template": "SRAG_ILIAS_LIBRARY"
+            },
+            "autoload": {
+                "psr-4": {
+                    "srag\\DevTools\\SrSelfDeclaration\\": "src/"
+                },
+                "classmap": [
+                    "src/class.DevToolsCtrl.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "studer + raimann ag - Team Custom 1",
+                    "email": "support-custom1@studer-raimann.ch",
+                    "homepage": "https://studer-raimann.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add some dev tools to ILIAS plugin config, if core dev mode is enabled, like reload ctrl structure",
+            "homepage": "https://github.com/studer-raimann/DevTools",
+            "keywords": [
+                "ILIAS",
+                "dev",
+                "plugin",
+                "tools"
+            ],
+            "time": "2020-11-13T09:12:09+00:00"
+        },
+        {
+            "name": "srag/dic",
+            "version": "0.31.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studer-raimann/DIC.git",
+                "reference": "05671be74b361e1cc95862323836d13af411996b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/05671be74b361e1cc95862323836d13af411996b",
+                "reference": "05671be74b361e1cc95862323836d13af411996b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "srag/generateplugininfoshelper": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "ilias_plugin": {
+                    "ilias_min_version": "5.4.0",
+                    "ilias_max_version": "6.999"
+                },
+                "generate_plugin_readme_template": "SRAG_ILIAS_LIBRARY"
+            },
+            "autoload": {
+                "psr-4": {
+                    "srag\\DIC\\SrSelfDeclaration\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "studer + raimann ag - Team Custom 1",
+                    "email": "support-custom1@studer-raimann.ch",
+                    "homepage": "https://studer-raimann.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Use all ILIAS globals in your class",
+            "homepage": "https://github.com/studer-raimann/DIC",
+            "keywords": [
+                "ILIAS",
+                "dic",
+                "globals",
+                "trait"
+            ],
+            "time": "2020-12-10T12:28:26+00:00"
+        },
+        {
+            "name": "srag/generateplugininfoshelper",
+            "version": "2.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studer-raimann/GeneratePluginInfosHelper.git",
+                "reference": "c27b765782c9533f6f6f67e2b1a705f52df377a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/c27b765782c9533f6f6f67e2b1a705f52df377a1",
+                "reference": "c27b765782c9533f6f6f67e2b1a705f52df377a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "extra": {
+                "generate_plugin_readme_template": "SRAG_LIBRARY"
+            },
+            "autoload": {
+                "psr-4": {
+                    "srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "studer + raimann ag - Team Custom 1",
+                    "email": "support-custom1@studer-raimann.ch",
+                    "homepage": "https://studer-raimann.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Automatic generate plugin infos such README.md, plugin.php, plugin.xml, ... from composer.json",
+            "homepage": "https://github.com/studer-raimann/GeneratePluginInfosHelper",
+            "keywords": [
+                "Infos",
+                "generate",
+                "helper",
+                "plugin"
+            ],
+            "time": "2020-11-30T14:15:16+00:00"
+        },
+        {
+            "name": "srag/librariesnamespacechanger",
+            "version": "0.14.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studer-raimann/LibrariesNamespaceChanger.git",
+                "reference": "196916a264362f10fe508f718c5e939955678c5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studer-raimann/LibrariesNamespaceChanger/zipball/196916a264362f10fe508f718c5e939955678c5a",
+                "reference": "196916a264362f10fe508f718c5e939955678c5a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "srag/generateplugininfoshelper": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "generate_plugin_readme_template": "SRAG_LIBRARY"
+            },
+            "autoload": {
+                "psr-4": {
+                    "srag\\LibrariesNamespaceChanger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "studer + raimann ag - Team Custom 1",
+                    "email": "support-custom1@studer-raimann.ch",
+                    "homepage": "https://studer-raimann.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Change namespace of libraries to plugin namespace",
+            "homepage": "https://github.com/studer-raimann/LibrariesNamespaceChanger",
+            "keywords": [
+                "changer",
+                "libraries",
+                "namespace"
+            ],
+            "time": "2020-11-13T09:54:27+00:00"
+        },
+        {
+            "name": "srag/librarylanguageinstaller",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studer-raimann/LibraryLanguageInstaller.git",
+                "reference": "8f484ac9bbeb0aea0157d1dc93283f75922a373f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studer-raimann/LibraryLanguageInstaller/zipball/8f484ac9bbeb0aea0157d1dc93283f75922a373f",
+                "reference": "8f484ac9bbeb0aea0157d1dc93283f75922a373f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "srag/dic": ">=0.1.0"
+            },
+            "require-dev": {
+                "srag/generateplugininfoshelper": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "ilias_plugin": {
+                    "ilias_min_version": "5.4.0",
+                    "ilias_max_version": "6.999"
+                },
+                "generate_plugin_readme_template": "SRAG_ILIAS_LIBRARY"
+            },
+            "autoload": {
+                "psr-4": {
+                    "srag\\LibraryLanguageInstaller\\SrSelfDeclaration\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "studer + raimann ag - Team Custom 1",
+                    "email": "support-custom1@studer-raimann.ch",
+                    "homepage": "https://studer-raimann.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Install additional and external lang files for a plugin",
+            "homepage": "https://github.com/studer-raimann/LibraryLanguageInstaller",
+            "keywords": [
+                "ILIAS",
+                "installer",
+                "language",
+                "library"
+            ],
+            "time": "2020-11-13T09:56:56+00:00"
+        },
+        {
+            "name": "srag/removeplugindataconfirm",
+            "version": "0.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studer-raimann/RemovePluginDataConfirm.git",
+                "reference": "be5e7b4e3fdff8bd2a32151f116020f135886e79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studer-raimann/RemovePluginDataConfirm/zipball/be5e7b4e3fdff8bd2a32151f116020f135886e79",
+                "reference": "be5e7b4e3fdff8bd2a32151f116020f135886e79",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "srag/dic": ">=0.1.0",
+                "srag/librarylanguageinstaller": ">=0.1.0"
+            },
+            "require-dev": {
+                "srag/generateplugininfoshelper": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "ilias_plugin": {
+                    "ilias_min_version": "5.4.0",
+                    "ilias_max_version": "6.999"
+                },
+                "generate_plugin_readme_template": "SRAG_ILIAS_LIBRARY"
+            },
+            "autoload": {
+                "psr-4": {
+                    "srag\\RemovePluginDataConfirm\\SrSelfDeclaration\\": "src/"
+                },
+                "classmap": [
+                    "src/class.RemovePluginDataConfirmCtrl.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "studer + raimann ag - Team Custom 1",
+                    "email": "support-custom1@studer-raimann.ch",
+                    "homepage": "https://studer-raimann.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Demand if plugin data should be removed on uninstall",
+            "homepage": "https://github.com/studer-raimann/RemovePluginDataConfirm",
+            "keywords": [
+                "ILIAS",
+                "confirm",
+                "data",
+                "plugin",
+                "uninstall"
+            ],
+            "time": "2020-11-13T09:48:50+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}

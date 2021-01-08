@@ -1,6 +1,6 @@
 {
   "name": "srag/srselfdeclaration",
-  "description": "",
+  "description": "Declaration of object members",
   "version": "1.0.0",
   "extra": {
     "ilias_plugin": {
@@ -33,6 +33,7 @@
   "require": {
     "php": ">=7.0",
     "srag/custominputguis": ">=0.1.0",
+    "srag/datatable": ">=0.1.0",
     "srag/devtools": ">=0.1.0",
     "srag/dic": ">=0.1.0",
     "srag/generateplugininfoshelper": ">=0.1.0",
@@ -44,7 +45,10 @@
       "srag\\Plugins\\SrSelfDeclaration\\": "src/"
     },
     "classmap": [
-      "classes/"
+      "classes/",
+      "src/Config/class.ConfigCtrl.php",
+      "src/Declaration/class.DeclarationsCtrl.php",
+      "src/Declaration/class.DeclarationCtrl.php"
     ],
     "files": [
       "vendor/srag/dic/src/PHPVersionChecker.php",

@@ -1,0 +1,13 @@
+config_config#:#Config declarations
+config_default_text#:#Default text
+config_enabled#:#Enabled
+config_save#:#Save
+config_saved#:#Saved
+declarations_declarations#:#Declarations
+declarations_text#:#Text
+declaration_cancel#:#Cacnel
+declaration_declaration#:#Declaration
+declaration_save#:#Save
+declaration_saved#:#Saved
+declaration_set#:#Set
+declaration_text#:#Text

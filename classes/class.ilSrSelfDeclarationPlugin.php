@@ -4,6 +4,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\DI\Container;
 use srag\CustomInputGUIs\SrSelfDeclaration\Loader\CustomInputGUIsLoaderDetector;
+use srag\DataTableUI\SrSelfDeclaration\Implementation\Utils\DataTableUITrait;
 use srag\DevTools\SrSelfDeclaration\DevToolsCtrl;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 use srag\RemovePluginDataConfirm\SrSelfDeclaration\PluginUninstallTrait;
@@ -18,6 +19,7 @@ class ilSrSelfDeclarationPlugin extends ilUserInterfaceHookPlugin
 
     use PluginUninstallTrait;
     use SrSelfDeclarationTrait;
+    use DataTableUITrait;
 
     const PLUGIN_CLASS_NAME = self::class;
     const PLUGIN_ID = "srselfdeclr";
@@ -76,6 +78,8 @@ class ilSrSelfDeclarationPlugin extends ilUserInterfaceHookPlugin
         parent::updateLanguages($a_lang_keys);
 
         $this->installRemovePluginDataConfirmLanguages();
+
+        self::dataTableUI()->installLanguages(self::plugin());
 
         DevToolsCtrl::installLanguages(self::plugin());
     }

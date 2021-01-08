@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f094342f6bc78ba6775c8ab3fcdd9e7",
+    "content-hash": "2caafd242735a2cf0ad5fdffad1fc8b7",
     "packages": [
         {
             "name": "srag/custominputguis",
@@ -68,6 +68,63 @@
                 "table"
             ],
             "time": "2020-11-13T09:45:09+00:00"
+        },
+        {
+            "name": "srag/datatable",
+            "version": "0.30.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studer-raimann/DataTableUI.git",
+                "reference": "430f69ee0a8b7d7f39c2dda7272d39ac16559876"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studer-raimann/DataTableUI/zipball/430f69ee0a8b7d7f39c2dda7272d39ac16559876",
+                "reference": "430f69ee0a8b7d7f39c2dda7272d39ac16559876",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "srag/custominputguis": ">=0.1.0",
+                "srag/dic": ">=0.1.0",
+                "srag/librarylanguageinstaller": ">=0.1.0"
+            },
+            "require-dev": {
+                "srag/generateplugininfoshelper": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "ilias_plugin": {
+                    "ilias_min_version": "5.4.0",
+                    "ilias_max_version": "6.999"
+                },
+                "generate_plugin_readme_template": "SRAG_ILIAS_LIBRARY"
+            },
+            "autoload": {
+                "psr-4": {
+                    "srag\\DataTableUI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "studer + raimann ag - Team Custom 1",
+                    "email": "support-custom1@studer-raimann.ch",
+                    "homepage": "https://studer-raimann.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "ILIAS Data Table UI Component",
+            "homepage": "https://github.com/studer-raimann/DataTableUI",
+            "keywords": [
+                "ILIAS",
+                "table",
+                "ui"
+            ],
+            "time": "2021-01-08T08:45:39+00:00"
         },
         {
             "name": "srag/devtools",

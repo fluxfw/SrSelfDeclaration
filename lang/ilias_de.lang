@@ -1,0 +1,13 @@
+config_config#:#Konfiguration Deklarationen
+config_default_text#:#Standard-Text
+config_enabled#:#Aktiviert
+config_save#:#Speichern
+config_saved#:#Gespeichert
+declarations_declarations#:#Deklarationen
+declarations_text#:#Text
+declaration_cancel#:#Abbrechen
+declaration_declaration#:#Deklaration
+declaration_save#:#Speichern
+declaration_saved#:#Gespeichert
+declaration_set#:#Setzen
+declaration_text#:#Text

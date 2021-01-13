@@ -45,17 +45,17 @@ You can enable it per object and set a default declaration text
 
 Object members, with read permission only, can set declaration once
 
-#### Before set
+#### Before fill
 
-![Declaration block set](./doc/images/declaration_block_before_set.png)
+![Declaration block before fill](./doc/images/declaration_block_before_fill.png)
 
 #### Form
 
 ![Declaration form](./doc/images/declaration_form.png)
 
-#### After set
+#### After fill
 
-![Declaration block set](./doc/images/declaration_block_after_set.png)
+![Declaration block after fill](./doc/images/declaration_block_after_fill.png)
 
 ### Declarations
 

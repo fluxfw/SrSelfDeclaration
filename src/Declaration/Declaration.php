@@ -8,6 +8,7 @@ use ilObject;
 use ilObjUser;
 use ilSrSelfDeclarationPlugin;
 use srag\DIC\SrSelfDeclaration\DICTrait;
+use srag\Plugins\SrSelfDeclaration\Config\Config;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
@@ -36,6 +37,23 @@ class Declaration extends ActiveRecord
      * @con_sequence     true
      */
     protected $declaration_id;
+    /**
+     * @var int
+     *
+     * @con_has_field    true
+     * @con_fieldtype    integer
+     * @con_length       8
+     * @con_is_notnull   true
+     */
+    protected $effort = 0;
+    /**
+     * @var string
+     *
+     * @con_has_field    true
+     * @con_fieldtype    text
+     * @con_is_notnull   true
+     */
+    protected $effort_reason = "";
     /**
      * @var int
      *
@@ -88,6 +106,15 @@ class Declaration extends ActiveRecord
 
 
     /**
+     * @return Config
+     */
+    public function getConfig() : Config
+    {
+        return self::srSelfDeclaration()->configs()->getConfig($this->obj_id);
+    }
+
+
+    /**
      * @inheritDoc
      */
     public function getConnectorContainerName() : string
@@ -111,6 +138,67 @@ class Declaration extends ActiveRecord
     public function setDeclarationId(int $declaration_id)/* : void*/
     {
         $this->declaration_id = $declaration_id;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getDefaultEffort() : int
+    {
+        return $this->getConfig()->getDefaultEffort();
+    }
+
+
+    /**
+     * @param string|null $lang_key
+     * @param bool        $use_default_if_not_set
+     *
+     * @return string
+     */
+    public function getDefaultText(/*?*/ string $lang_key = null, bool $use_default_if_not_set = true) : string
+    {
+        return $this->getConfig()->getDefaultText($lang_key = null, $use_default_if_not_set);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getEffort() : int
+    {
+        if (!empty($this->effort)) {
+            return $this->effort;
+        } else {
+            return $this->getDefaultEffort();
+        }
+    }
+
+
+    /**
+     * @param int $effort
+     */
+    public function setEffort(int $effort)/* : void*/
+    {
+        $this->effort = $effort;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getEffortReason() : string
+    {
+        return $this->effort_reason;
+    }
+
+
+    /**
+     * @param string $effort_reason
+     */
+    public function setEffortReason(string $effort_reason)/* : void*/
+    {
+        $this->effort_reason = $effort_reason;
     }
 
 
@@ -146,7 +234,11 @@ class Declaration extends ActiveRecord
      */
     public function getText() : string
     {
-        return $this->text;
+        if (!empty($this->text)) {
+            return $this->text;
+        } else {
+            return $this->getDefaultText();
+        }
     }
 
 
@@ -207,6 +299,7 @@ class Declaration extends ActiveRecord
     {
         switch ($field_name) {
             case "declaration_id":
+            case "effort":
             case "obj_id":
             case "usr_id":
                 return intval($field_value);

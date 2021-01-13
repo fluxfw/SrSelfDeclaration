@@ -101,8 +101,6 @@ final class Repository
                 $this->declarations_of_object_for_user[$cache_key]->setObjId($obj_id);
 
                 $this->declarations_of_object_for_user[$cache_key]->setUsrId($usr_id);
-
-                $this->declarations_of_object_for_user[$cache_key]->setText(self::srSelfDeclaration()->configs()->getConfig($obj_id)->getDefaultText());
             }
         }
 

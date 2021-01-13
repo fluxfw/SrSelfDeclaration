@@ -66,17 +66,17 @@
     },
     {
         "name": "srag/datatable",
-        "version": "0.30.3",
-        "version_normalized": "0.30.3.0",
+        "version": "0.31.0",
+        "version_normalized": "0.31.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/studer-raimann/DataTableUI.git",
-            "reference": "430f69ee0a8b7d7f39c2dda7272d39ac16559876"
+            "reference": "e0947464e5428b06c1ccbe145a45de94247f764f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/studer-raimann/DataTableUI/zipball/430f69ee0a8b7d7f39c2dda7272d39ac16559876",
-            "reference": "430f69ee0a8b7d7f39c2dda7272d39ac16559876",
+            "url": "https://api.github.com/repos/studer-raimann/DataTableUI/zipball/e0947464e5428b06c1ccbe145a45de94247f764f",
+            "reference": "e0947464e5428b06c1ccbe145a45de94247f764f",
             "shasum": ""
         },
         "require": {
@@ -88,7 +88,7 @@
         "require-dev": {
             "srag/generateplugininfoshelper": ">=0.1.0"
         },
-        "time": "2021-01-08T08:45:39+00:00",
+        "time": "2021-01-13T08:07:07+00:00",
         "type": "library",
         "extra": {
             "ilias_plugin": {

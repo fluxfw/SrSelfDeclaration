@@ -123,6 +123,7 @@ return array(
     'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Column\\Formatter\\LanguageVariableFormatter' => $vendorDir . '/srag/datatable/src/Implementation/Column/Formatter/LanguageVariableFormatter.php',
     'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Column\\Formatter\\LearningProgressFormatter' => $vendorDir . '/srag/datatable/src/Implementation/Column/Formatter/LearningProgressFormatter.php',
     'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Column\\Formatter\\LinkFormatter' => $vendorDir . '/srag/datatable/src/Implementation/Column/Formatter/LinkFormatter.php',
+    'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Column\\Formatter\\MultilineFormatter' => $vendorDir . '/srag/datatable/src/Implementation/Column/Formatter/MultilineFormatter.php',
     'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Data\\Data' => $vendorDir . '/srag/datatable/src/Implementation/Data/Data.php',
     'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Data\\Factory' => $vendorDir . '/srag/datatable/src/Implementation/Data/Factory.php',
     'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Data\\Fetcher\\AbstractDataFetcher' => $vendorDir . '/srag/datatable/src/Implementation/Data/Fetcher/AbstractDataFetcher.php',

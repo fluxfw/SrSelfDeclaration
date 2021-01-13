@@ -25,7 +25,7 @@ class DeclarationCtrl
     use SrSelfDeclarationTrait;
 
     const CMD_BACK = "back";
-    const CMD_EDIT_DECLARATION = "editDeclaration";
+    const CMD_FILL_DECLARATION = "fillDeclaration";
     const CMD_SAVE_DECLARATION = "saveDeclaration";
     const GET_PARAM_REF_ID = "ref_id";
     const LANG_MODULE = "declaration";
@@ -81,7 +81,7 @@ class DeclarationCtrl
 
                 switch ($cmd) {
                     case self::CMD_BACK:
-                    case self::CMD_EDIT_DECLARATION:
+                    case self::CMD_FILL_DECLARATION:
                     case self::CMD_SAVE_DECLARATION:
                         $this->{$cmd}();
                         break;
@@ -106,7 +106,7 @@ class DeclarationCtrl
     /**
      *
      */
-    protected function editDeclaration()/* : void*/
+    protected function fillDeclaration()/* : void*/
     {
         if (self::srSelfDeclaration()->declarations()->hasDeclaration($this->declaration)) {
             self::dic()->ctrl()->redirect($this, self::CMD_BACK);

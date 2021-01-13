@@ -64,8 +64,9 @@ class FormBuilder extends AbstractFormBuilder
     protected function getData() : array
     {
         $data = [
-            "enabled"       => $this->config->isEnabled(),
-            "default_texts" => $this->config->getDefaultTexts()
+            "enabled"        => $this->config->isEnabled(),
+            "default_texts"  => $this->config->getDefaultTexts(),
+            "default_effort" => $this->config->getDefaultEffort()
         ];
 
         return $data;
@@ -78,8 +79,9 @@ class FormBuilder extends AbstractFormBuilder
     protected function getFields() : array
     {
         $fields = [
-            "enabled"       => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("enabled", ConfigCtrl::LANG_MODULE)),
-            "default_texts" => (new InputGUIWrapperUIInputComponent(new TabsInputGUI(self::plugin()->translate("default_text", ConfigCtrl::LANG_MODULE))))
+            "enabled"        => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("enabled", ConfigCtrl::LANG_MODULE)),
+            "default_texts"  => new InputGUIWrapperUIInputComponent(new TabsInputGUI(self::plugin()->translate("default_text", ConfigCtrl::LANG_MODULE))),
+            "default_effort" => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("default_effort", ConfigCtrl::LANG_MODULE))
         ];
         MultilangualTabsInputGUI::generateLegacy($fields["default_texts"]->getInput(), [
             new  TextAreaInputGUI(self::plugin()->translate("default_text", ConfigCtrl::LANG_MODULE), "default_text")
@@ -105,6 +107,7 @@ class FormBuilder extends AbstractFormBuilder
     {
         $this->config->setEnabled(boolval($data["enabled"]));
         $this->config->setDefaultTexts((array) $data["default_texts"]);
+        $this->config->setDefaultEffort(intval($data["default_effort"]));
 
         self::srSelfDeclaration()->configs()->storeConfig($this->config);
     }

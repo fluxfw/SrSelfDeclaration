@@ -1,13 +1,19 @@
 config_config#:#Konfiguration Deklarationen
-config_default_text#:#Standard-Text
+config_default_effort#:#Vorgabe Aufwand
+config_default_text#:#Vorgabe Text
 config_enabled#:#Aktiviert
 config_save#:#Speichern
 config_saved#:#Gespeichert
 declarations_declarations#:#Deklarationen
+declarations_effort#:#Geleisteter Aufwand
+declarations_effort_reason#:#Begründung des Aufwands
 declarations_text#:#Text
 declaration_cancel#:#Abbrechen
 declaration_declaration#:#Deklaration
+declaration_effort#:#Geleisteter Aufwand
+declaration_effort_reason#:#Begründung des Aufwands
+declaration_effort_reason_info#:#Wird benötigt, wenn der geleistete Aufwand vom vorgegebenen Aufwand abweicht
+declaration_fill#:#Ausfüllen
 declaration_save#:#Speichern
 declaration_saved#:#Gespeichert
-declaration_set#:#Setzen
 declaration_text#:#Text

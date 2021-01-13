@@ -2,8 +2,13 @@
 
 namespace srag\Plugins\SrSelfDeclaration\Declaration\Form;
 
+use Closure;
+use ILIAS\UI\Implementation\Component\Input\Field\Group;
+use ilNonEditableValueGUI;
 use ilSrSelfDeclarationPlugin;
 use srag\CustomInputGUIs\SrSelfDeclaration\FormBuilder\AbstractFormBuilder;
+use srag\CustomInputGUIs\SrSelfDeclaration\InputGUIWrapperUIInputComponent\InputGUIWrapperUIInputComponent;
+use srag\Plugins\SrSelfDeclaration\Config\ConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Declaration\Declaration;
 use srag\Plugins\SrSelfDeclaration\Declaration\DeclarationCtrl;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
@@ -61,7 +66,10 @@ class FormBuilder extends AbstractFormBuilder
     protected function getData() : array
     {
         $data = [
-            "text" => $this->declaration->getText()
+            "text"           => $this->declaration->getText(),
+            "default_effort" => $this->declaration->getDefaultEffort(),
+            "effort"         => $this->declaration->getEffort(),
+            "effort_reason"  => $this->declaration->getEffortReason()
         ];
 
         return $data;
@@ -74,7 +82,11 @@ class FormBuilder extends AbstractFormBuilder
     protected function getFields() : array
     {
         $fields = [
-            "text" => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("text", DeclarationCtrl::LANG_MODULE))->withRequired(true),
+            "text"           => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("text", DeclarationCtrl::LANG_MODULE))->withRequired(true),
+            "default_effort" => new InputGUIWrapperUIInputComponent(new ilNonEditableValueGUI(self::plugin()->translate("default_effort", ConfigCtrl::LANG_MODULE))),
+            "effort"         => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("effort", DeclarationCtrl::LANG_MODULE))->withRequired(true),
+            "effort_reason"  => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("effort_reason", DeclarationCtrl::LANG_MODULE))->withByline(self::plugin()
+                ->translate("effort_reason_info", DeclarationCtrl::LANG_MODULE))
         ];
 
         return $fields;
@@ -96,7 +108,40 @@ class FormBuilder extends AbstractFormBuilder
     protected function storeData(array $data)/* : void*/
     {
         $this->declaration->setText(strval($data["text"]));
+        $this->declaration->setEffort(intval($data["effort"]));
+        $this->declaration->setEffortReason(strval($data["effort_reason"]));
 
         self::srSelfDeclaration()->declarations()->storeDeclaration($this->declaration);
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function validateData(array $data) : bool
+    {
+        $ok = true;
+
+        $inputs = $this->form->getInputs()["form"]->getInputs();
+
+        if (empty(intval($data["effort"]))) {
+            $inputs["effort"] = $inputs["effort"]->withError(self::dic()->language()->txt("msg_input_is_required"));
+
+            $ok = false;
+        }
+
+        if (intval($data["effort"]) !== $this->declaration->getDefaultEffort()) {
+            if (empty(strval($data["effort_reason"]))) {
+                $inputs["effort_reason"] = $inputs["effort_reason"]->withError(self::dic()->language()->txt("msg_input_is_required"));
+
+                $ok = false;
+            }
+        }
+
+        Closure::bind(function (array $inputs)/* : void*/ {
+            $this->inputs = $inputs;
+        }, $this->form->getInputs()["form"], Group::class)($inputs);
+
+        return $ok;
     }
 }

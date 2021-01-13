@@ -7,6 +7,7 @@ use ilObject;
 use ilSrSelfDeclarationPlugin;
 use ilUIPluginRouterGUI;
 use srag\DIC\SrSelfDeclaration\DICTrait;
+use srag\Plugins\SrSelfDeclaration\Config\ConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Declaration\Declaration;
 use srag\Plugins\SrSelfDeclaration\Declaration\DeclarationCtrl;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
@@ -94,20 +95,35 @@ class Block extends ilBlockGUI
      */
     protected function getDeclaration() : string
     {
-        $output = [
-            nl2br(implode("\n", array_map("htmlspecialchars", explode("\n", $this->declaration->getText()))), false)
-        ];
+        $fields = [];
+        $buttons = [];
 
-        if (!self::srSelfDeclaration()->declarations()->hasDeclaration($this->declaration)) {
-            $output[] = "<br>";
+        if (self::srSelfDeclaration()->declarations()->hasDeclaration($this->declaration)) {
+            $fields[self::plugin()->translate("text", DeclarationCtrl::LANG_MODULE)] = $this->declaration->getText();
+
+            if ($this->declaration->getDefaultEffort() !== $this->declaration->getEffort()) {
+                $fields[self::plugin()->translate("default_effort", ConfigCtrl::LANG_MODULE)] = $this->declaration->getDefaultEffort();
+            }
+
+            $fields[self::plugin()->translate("effort", DeclarationCtrl::LANG_MODULE)] = $this->declaration->getEffort();
+
+            $fields[self::plugin()->translate("effort_reason", DeclarationCtrl::LANG_MODULE)] = $this->declaration->getEffortReason();
+        } else {
+            $fields[self::plugin()->translate("default_text", ConfigCtrl::LANG_MODULE)] = $this->declaration->getDefaultText();
+
+            $fields[self::plugin()->translate("default_effort", ConfigCtrl::LANG_MODULE)] = $this->declaration->getDefaultEffort();
 
             self::dic()->ctrl()->setParameterByClass(DeclarationCtrl::class, DeclarationCtrl::GET_PARAM_REF_ID, $this->obj->getRefId());
-
-            $output[] = self::dic()->ui()->factory()->button()->standard(self::plugin()->translate("set", DeclarationCtrl::LANG_MODULE),
-                self::dic()->ctrl()->getLinkTargetByClass([ilUIPluginRouterGUI::class, DeclarationCtrl::class], DeclarationCtrl::CMD_EDIT_DECLARATION));
+            $buttons[] = self::dic()->ui()->factory()->button()->standard(self::plugin()->translate("fill", DeclarationCtrl::LANG_MODULE),
+                self::dic()->ctrl()->getLinkTargetByClass([ilUIPluginRouterGUI::class, DeclarationCtrl::class], DeclarationCtrl::CMD_FILL_DECLARATION));
         }
 
-        return self::output()->getHTML($output);
+        return self::output()->getHTML([
+            self::dic()->ui()->factory()->listing()->descriptive(array_filter(array_map(function ($value) : string {
+                return nl2br(implode("\n", array_map("htmlspecialchars", explode("\n", strval($value)))), false);
+            }, $fields))),
+            $buttons
+        ]);
     }
 
 

@@ -37,6 +37,15 @@ class Config extends ActiveRecord
      */
     protected $config_id;
     /**
+     * @var int
+     *
+     * @con_has_field    true
+     * @con_fieldtype    integer
+     * @con_length       8
+     * @con_is_notnull   true
+     */
+    protected $default_effort = 0;
+    /**
      * @var array
      *
      * @con_has_field    true
@@ -111,6 +120,24 @@ class Config extends ActiveRecord
     public function getConnectorContainerName() : string
     {
         return self::TABLE_NAME;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getDefaultEffort() : int
+    {
+        return $this->default_effort;
+    }
+
+
+    /**
+     * @param int $default_effort
+     */
+    public function setDefaultEffort(int $default_effort)/* : void*/
+    {
+        $this->default_effort = $default_effort;
     }
 
 
@@ -229,6 +256,7 @@ class Config extends ActiveRecord
                 return boolval($field_value);
 
             case "config_id":
+            case "default_effort":
             case "obj_id":
                 return intval($field_value);
 

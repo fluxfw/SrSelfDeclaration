@@ -6,12 +6,10 @@ use ilObject;
 use ilSrSelfDeclarationPlugin;
 use ilUserDefinedFields;
 use ilUserProfile;
-use srag\DataTableUI\SrSelfDeclaration\Component\Column\Column;
-use srag\DataTableUI\SrSelfDeclaration\Component\Data\Row\RowData;
-use srag\DataTableUI\SrSelfDeclaration\Component\Format\Format;
 use srag\DataTableUI\SrSelfDeclaration\Component\Table;
-use srag\DataTableUI\SrSelfDeclaration\Implementation\Column\Formatter\DefaultFormatter;
 use srag\DataTableUI\SrSelfDeclaration\Implementation\Utils\AbstractTableBuilder;
+use srag\Plugins\SrSelfDeclaration\Config\Config;
+use srag\Plugins\SrSelfDeclaration\Config\ConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Declaration\DeclarationsCtrl;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
@@ -29,6 +27,10 @@ class TableBuilder extends AbstractTableBuilder
 
     const PLUGIN_CLASS_NAME = ilSrSelfDeclarationPlugin::class;
     /**
+     * @var Config
+     */
+    protected $config;
+    /**
      * @var ilObject
      */
     protected $obj;
@@ -39,12 +41,30 @@ class TableBuilder extends AbstractTableBuilder
      *
      * @param DeclarationsCtrl $parent
      * @param ilObject         $obj
+     * @param Config           $config
      */
-    public function __construct(DeclarationsCtrl $parent, ilObject $obj)
+    public function __construct(DeclarationsCtrl $parent, ilObject $obj, Config $config)
     {
         parent::__construct($parent);
 
         $this->obj = $obj;
+        $this->config = $config;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function render() : string
+    {
+        self::dic()->ui()->mainTemplate()->setRightContent(self::output()->getHTML(self::dic()->ui()->factory()->listing()->descriptive(array_filter(array_map(function ($value) : string {
+            return nl2br(implode("\n", array_map("htmlspecialchars", explode("\n", strval($value)))), false);
+        }, [
+            self::plugin()->translate("default_text", ConfigCtrl::LANG_MODULE)   => $this->config->getDefaultText(),
+            self::plugin()->translate("default_effort", ConfigCtrl::LANG_MODULE) => $this->config->getDefaultEffort()
+        ])))));
+
+        return parent::render();
     }
 
 
@@ -74,16 +94,16 @@ class TableBuilder extends AbstractTableBuilder
         }
 
         $columns[] = self::dataTableUI()->column()->column("text",
-            self::plugin()->translate("text", DeclarationsCtrl::LANG_MODULE))->withSortable(false)->withSelectable(false)->withFormatter(new class() extends DefaultFormatter {
+            self::plugin()->translate("text", DeclarationsCtrl::LANG_MODULE))->withSortable(false)->withSelectable(false)->withFormatter(self::dataTableUI()->column()->formatter()->multiline());
 
-            /**
-             * @inheritDoc
-             */
-            public function formatRowCell(Format $format, $value, Column $column, RowData $row, string $table_id) : string
-            {
-                return nl2br(implode("\n", array_map("htmlspecialchars", explode("\n", $value))), false);
-            }
-        });
+        $columns[] = self::dataTableUI()->column()->column("effort",
+            self::plugin()->translate("effort", DeclarationsCtrl::LANG_MODULE))->withSortable(false)->withSelectable(false);
+
+        $columns[] = self::dataTableUI()->column()->column("effort_reason",
+            self::plugin()->translate("effort_reason", DeclarationsCtrl::LANG_MODULE))->withSortable(false)->withSelectable(false)->withFormatter(self::dataTableUI()
+            ->column()
+            ->formatter()
+            ->multiline());
 
         $table = self::dataTableUI()->table(ilSrSelfDeclarationPlugin::PLUGIN_ID . "_declarations",
             self::dic()->ctrl()->getLinkTarget($this->parent, DeclarationsCtrl::CMD_LIST_DECLARATIONS, "", false, false),

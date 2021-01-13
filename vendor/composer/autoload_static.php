@@ -183,6 +183,7 @@ class ComposerStaticInit0a2e008f1e9bc1f2e1ba97103d586353
         'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Column\\Formatter\\LanguageVariableFormatter' => __DIR__ . '/..' . '/srag/datatable/src/Implementation/Column/Formatter/LanguageVariableFormatter.php',
         'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Column\\Formatter\\LearningProgressFormatter' => __DIR__ . '/..' . '/srag/datatable/src/Implementation/Column/Formatter/LearningProgressFormatter.php',
         'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Column\\Formatter\\LinkFormatter' => __DIR__ . '/..' . '/srag/datatable/src/Implementation/Column/Formatter/LinkFormatter.php',
+        'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Column\\Formatter\\MultilineFormatter' => __DIR__ . '/..' . '/srag/datatable/src/Implementation/Column/Formatter/MultilineFormatter.php',
         'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Data\\Data' => __DIR__ . '/..' . '/srag/datatable/src/Implementation/Data/Data.php',
         'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Data\\Factory' => __DIR__ . '/..' . '/srag/datatable/src/Implementation/Data/Factory.php',
         'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Data\\Fetcher\\AbstractDataFetcher' => __DIR__ . '/..' . '/srag/datatable/src/Implementation/Data/Fetcher/AbstractDataFetcher.php',

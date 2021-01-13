@@ -1,13 +1,19 @@
 config_config#:#Config declarations
+config_default_effort#:#Default effort
 config_default_text#:#Default text
 config_enabled#:#Enabled
 config_save#:#Save
 config_saved#:#Saved
 declarations_declarations#:#Declarations
+declarations_effort#:#Performed effort
+declarations_effort_reason#:#Effort reason
 declarations_text#:#Text
 declaration_cancel#:#Cancel
 declaration_declaration#:#Declaration
+declaration_effort#:#Performed effort
+declaration_effort_reason#:#Effort reason
+declaration_effort_reason_info#:#Is required if the performed effort is different to the default effort
+declaration_fill#:#Fill
 declaration_save#:#Save
 declaration_saved#:#Saved
-declaration_set#:#Set
 declaration_text#:#Text

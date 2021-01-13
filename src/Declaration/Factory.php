@@ -5,6 +5,7 @@ namespace srag\Plugins\SrSelfDeclaration\Declaration;
 use ilObject;
 use ilSrSelfDeclarationPlugin;
 use srag\DIC\SrSelfDeclaration\DICTrait;
+use srag\Plugins\SrSelfDeclaration\Config\Config;
 use srag\Plugins\SrSelfDeclaration\Declaration\Block\Block;
 use srag\Plugins\SrSelfDeclaration\Declaration\Form\FormBuilder;
 use srag\Plugins\SrSelfDeclaration\Declaration\Table\TableBuilder;
@@ -93,12 +94,13 @@ final class Factory
     /**
      * @param DeclarationsCtrl $parent
      * @param ilObject         $obj
+     * @param Config           $config
      *
      * @return TableBuilder
      */
-    public function newTableBuilderInstance(DeclarationsCtrl $parent, ilObject $obj) : TableBuilder
+    public function newTableBuilderInstance(DeclarationsCtrl $parent, ilObject $obj, Config $config) : TableBuilder
     {
-        $table = new TableBuilder($parent, $obj);
+        $table = new TableBuilder($parent, $obj, $config);
 
         return $table;
     }

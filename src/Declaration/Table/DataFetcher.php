@@ -50,8 +50,12 @@ class DataFetcher extends AbstractDataFetcher
     {
         $data = self::srSelfDeclaration()->declarations()->getDeclarationsOfObject($this->obj->getId());
 
+        $max_count = count($data);
+
+        $data = array_slice($data, $settings->getOffset(), $settings->getRowsCount());
+
         return self::dataTableUI()->data()->data(array_map(function (Declaration $declaration) : RowData {
             return self::dataTableUI()->data()->row()->getter($declaration->getDeclarationId(), $declaration);
-        }, $data), count($data));
+        }, $data), $max_count);
     }
 }

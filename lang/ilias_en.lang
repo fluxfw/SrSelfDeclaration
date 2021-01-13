@@ -5,7 +5,7 @@ config_save#:#Save
 config_saved#:#Saved
 declarations_declarations#:#Declarations
 declarations_text#:#Text
-declaration_cancel#:#Cacnel
+declaration_cancel#:#Cancel
 declaration_declaration#:#Declaration
 declaration_save#:#Save
 declaration_saved#:#Saved

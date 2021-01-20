@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrSelfDeclaration\Config;
+namespace srag\Plugins\SrSelfDeclaration\ObjectConfig;
 
 use ActiveRecord;
 use arConnector;
@@ -11,13 +11,13 @@ use srag\DIC\SrSelfDeclaration\DICTrait;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
- * Class Config
+ * Class ObjectConfig
  *
- * @package srag\Plugins\SrSelfDeclaration\Config
+ * @package srag\Plugins\SrSelfDeclaration\ObjectConfig
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class Config extends ActiveRecord
+class ObjectConfig extends ActiveRecord
 {
 
     use DICTrait;
@@ -74,7 +74,7 @@ class Config extends ActiveRecord
 
 
     /**
-     * Config constructor
+     * ObjectConfig constructor
      *
      * @param int              $primary_key_value
      * @param arConnector|null $connector
@@ -93,24 +93,6 @@ class Config extends ActiveRecord
     public static function returnDbTableName() : string
     {
         return self::TABLE_NAME;
-    }
-
-
-    /**
-     * @return int
-     */
-    public function getConfigId() : int
-    {
-        return $this->config_id;
-    }
-
-
-    /**
-     * @param int $config_id
-     */
-    public function setConfigId(int $config_id)/* : void*/
-    {
-        $this->config_id = $config_id;
     }
 
 
@@ -190,6 +172,15 @@ class Config extends ActiveRecord
 
 
     /**
+     * @return int
+     */
+    public function getObjectConfigId() : int
+    {
+        return $this->config_id;
+    }
+
+
+    /**
      * @return bool
      */
     public function isEnabled() : bool
@@ -223,6 +214,15 @@ class Config extends ActiveRecord
     public function setMaxEffort(int $max_effort)/* : void*/
     {
         $this->default_effort = $max_effort;
+    }
+
+
+    /**
+     * @param int $object_config_id
+     */
+    public function setObjectConfigId(int $object_config_id)/* : void*/
+    {
+        $this->config_id = $object_config_id;
     }
 
 

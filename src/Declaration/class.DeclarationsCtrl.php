@@ -7,7 +7,7 @@ use ilObject;
 use ilSrSelfDeclarationPlugin;
 use ilUIPluginRouterGUI;
 use srag\DIC\SrSelfDeclaration\DICTrait;
-use srag\Plugins\SrSelfDeclaration\Config\Config;
+use srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfig;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
@@ -32,10 +32,6 @@ class DeclarationsCtrl
     const PLUGIN_CLASS_NAME = ilSrSelfDeclarationPlugin::class;
     const TAB_LIST_DECLARATIONS = "list_declarations";
     /**
-     * @var Config
-     */
-    protected $config;
-    /**
      * @var ilObject
      */
     protected $obj;
@@ -43,6 +39,10 @@ class DeclarationsCtrl
      * @var int
      */
     protected $obj_ref_id;
+    /**
+     * @var ObjectConfig
+     */
+    protected $object_config;
 
 
     /**
@@ -85,7 +85,7 @@ class DeclarationsCtrl
 
         self::dic()->ctrl()->saveParameter($this, self::GET_PARAM_REF_ID);
 
-        $this->config = self::srSelfDeclaration()->configs()->getConfig($this->obj->getId());
+        $this->object_config = self::srSelfDeclaration()->objectConfigs()->getObjectConfig($this->obj->getId());
 
         $this->setTabs();
 
@@ -125,7 +125,7 @@ class DeclarationsCtrl
     {
         self::dic()->tabs()->activateTab(self::TAB_LIST_DECLARATIONS);
 
-        $table = self::srSelfDeclaration()->declarations()->factory()->newTableBuilderInstance($this, $this->obj, $this->config);
+        $table = self::srSelfDeclaration()->declarations()->factory()->newTableBuilderInstance($this, $this->obj, $this->object_config);
 
         self::output()->output($table, true);
     }

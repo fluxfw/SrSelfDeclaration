@@ -49,9 +49,9 @@
     },
     "classmap": [
       "classes/",
-      "src/Config/class.ConfigCtrl.php",
       "src/Declaration/class.DeclarationsCtrl.php",
-      "src/Declaration/class.DeclarationCtrl.php"
+      "src/Declaration/class.DeclarationCtrl.php",
+      "src/ObjectConfig/class.ObjectConfigCtrl.php"
     ],
     "files": [
       "vendor/srag/dic/src/PHPVersionChecker.php",

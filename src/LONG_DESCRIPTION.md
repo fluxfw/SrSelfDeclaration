@@ -6,11 +6,11 @@ You can enable it per object and set a default declaration text
 
 #### Tab
 
-![Config tab](../doc/images/config_tab.png)
+![Config tab](../doc/images/object_config_tab.png)
 
 #### Form
 
-![Config form](../doc/images/config_form.png)
+![Config form](../doc/images/object_config_form.png)
 
 ### Declaration block
 

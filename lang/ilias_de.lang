@@ -1,9 +1,3 @@
-config_config#:#Konfiguration Deklarationen
-config_default_text#:#Vorgabe Text
-config_enabled#:#Aktiviert
-config_max_effort#:#Maximaler Aufwand
-config_save#:#Speichern
-config_saved#:#Gespeichert
 declarations_declarations#:#Deklarationen
 declarations_effort#:#Geleisteter Aufwand
 declarations_effort_reason#:#Begründung des Aufwands
@@ -17,3 +11,9 @@ declaration_fill#:#Ausfüllen
 declaration_save#:#Speichern
 declaration_saved#:#Gespeichert
 declaration_text#:#Text
+object_config_config#:#Konfiguration Deklarationen
+object_config_default_text#:#Vorgabe Text
+object_config_enabled#:#Aktiviert
+object_config_max_effort#:#Maximaler Aufwand
+object_config_save#:#Speichern
+object_config_saved#:#Gespeichert

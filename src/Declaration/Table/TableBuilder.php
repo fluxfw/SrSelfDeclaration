@@ -8,9 +8,9 @@ use ilUserDefinedFields;
 use ilUserProfile;
 use srag\DataTableUI\SrSelfDeclaration\Component\Table;
 use srag\DataTableUI\SrSelfDeclaration\Implementation\Utils\AbstractTableBuilder;
-use srag\Plugins\SrSelfDeclaration\Config\Config;
-use srag\Plugins\SrSelfDeclaration\Config\ConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Declaration\DeclarationsCtrl;
+use srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfig;
+use srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
@@ -27,13 +27,13 @@ class TableBuilder extends AbstractTableBuilder
 
     const PLUGIN_CLASS_NAME = ilSrSelfDeclarationPlugin::class;
     /**
-     * @var Config
-     */
-    protected $config;
-    /**
      * @var ilObject
      */
     protected $obj;
+    /**
+     * @var ObjectConfig
+     */
+    protected $object_config;
 
 
     /**
@@ -41,14 +41,14 @@ class TableBuilder extends AbstractTableBuilder
      *
      * @param DeclarationsCtrl $parent
      * @param ilObject         $obj
-     * @param Config           $config
+     * @param ObjectConfig     $object_config
      */
-    public function __construct(DeclarationsCtrl $parent, ilObject $obj, Config $config)
+    public function __construct(DeclarationsCtrl $parent, ilObject $obj, ObjectConfig $object_config)
     {
         parent::__construct($parent);
 
         $this->obj = $obj;
-        $this->config = $config;
+        $this->object_config = $object_config;
     }
 
 
@@ -60,8 +60,8 @@ class TableBuilder extends AbstractTableBuilder
         self::dic()->ui()->mainTemplate()->setRightContent(self::output()->getHTML(self::dic()->ui()->factory()->listing()->descriptive(array_filter(array_map(function ($value) : string {
             return nl2br(implode("\n", array_map("htmlspecialchars", explode("\n", strval($value)))), false);
         }, [
-            self::plugin()->translate("default_text", ConfigCtrl::LANG_MODULE) => $this->config->getDefaultText(),
-            self::plugin()->translate("max_effort", ConfigCtrl::LANG_MODULE)   => $this->config->getMaxEffort()
+            self::plugin()->translate("default_text", ObjectConfigCtrl::LANG_MODULE) => $this->object_config->getDefaultText(),
+            self::plugin()->translate("max_effort", ObjectConfigCtrl::LANG_MODULE)   => $this->object_config->getMaxEffort()
         ])))));
 
         return parent::render();

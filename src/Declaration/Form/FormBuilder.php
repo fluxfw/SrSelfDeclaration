@@ -8,9 +8,9 @@ use ilNonEditableValueGUI;
 use ilSrSelfDeclarationPlugin;
 use srag\CustomInputGUIs\SrSelfDeclaration\FormBuilder\AbstractFormBuilder;
 use srag\CustomInputGUIs\SrSelfDeclaration\InputGUIWrapperUIInputComponent\InputGUIWrapperUIInputComponent;
-use srag\Plugins\SrSelfDeclaration\Config\ConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Declaration\Declaration;
 use srag\Plugins\SrSelfDeclaration\Declaration\DeclarationCtrl;
+use srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
@@ -83,7 +83,7 @@ class FormBuilder extends AbstractFormBuilder
     {
         $fields = [
             "text"          => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("text", DeclarationCtrl::LANG_MODULE))->withRequired(true),
-            "max_effort"    => new InputGUIWrapperUIInputComponent(new ilNonEditableValueGUI(self::plugin()->translate("max_effort", ConfigCtrl::LANG_MODULE))),
+            "max_effort"    => new InputGUIWrapperUIInputComponent(new ilNonEditableValueGUI(self::plugin()->translate("max_effort", ObjectConfigCtrl::LANG_MODULE))),
             "effort"        => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("effort", DeclarationCtrl::LANG_MODULE))->withRequired(true),
             "effort_reason" => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("effort_reason", DeclarationCtrl::LANG_MODULE))->withByline(self::plugin()
                 ->translate("effort_reason_info", DeclarationCtrl::LANG_MODULE))

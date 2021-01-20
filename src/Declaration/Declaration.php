@@ -8,7 +8,7 @@ use ilObject;
 use ilObjUser;
 use ilSrSelfDeclarationPlugin;
 use srag\DIC\SrSelfDeclaration\DICTrait;
-use srag\Plugins\SrSelfDeclaration\Config\Config;
+use srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfig;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
@@ -106,11 +106,11 @@ class Declaration extends ActiveRecord
 
 
     /**
-     * @return Config
+     * @return ObjectConfig
      */
-    public function getConfig() : Config
+    public function getConfig() : ObjectConfig
     {
-        return self::srSelfDeclaration()->configs()->getConfig($this->obj_id);
+        return self::srSelfDeclaration()->objectConfigs()->getObjectConfig($this->obj_id);
     }
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrSelfDeclaration\Config;
+namespace srag\Plugins\SrSelfDeclaration\ObjectConfig;
 
 use ilSrSelfDeclarationPlugin;
 use srag\DIC\SrSelfDeclaration\DICTrait;
@@ -9,7 +9,7 @@ use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 /**
  * Class Repository
  *
- * @package srag\Plugins\SrSelfDeclaration\Config
+ * @package srag\Plugins\SrSelfDeclaration\ObjectConfig
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -25,10 +25,6 @@ final class Repository
      */
     protected static $instance = null;
     /**
-     * @var Config[]
-     */
-    protected $configs = [];
-    /**
      * @var bool[]
      */
     protected $has_access = [];
@@ -36,6 +32,10 @@ final class Repository
      * @var bool[]
      */
     protected $is_enabled = [];
+    /**
+     * @var ObjectConfig[]
+     */
+    protected $object_configs = [];
 
 
     /**
@@ -65,7 +65,7 @@ final class Repository
      */
     public function dropTables()/* : void*/
     {
-        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
+        self::dic()->database()->dropTable(ObjectConfig::TABLE_NAME, false);
     }
 
 
@@ -81,21 +81,21 @@ final class Repository
     /**
      * @param int $obj_id
      *
-     * @return Config
+     * @return ObjectConfig
      */
-    public function getConfig(int $obj_id) : Config
+    public function getObjectConfig(int $obj_id) : ObjectConfig
     {
-        if ($this->configs[$obj_id] === null) {
-            $this->configs[$obj_id] = Config::where(["obj_id" => $obj_id])->first();
+        if ($this->object_configs[$obj_id] === null) {
+            $this->object_configs[$obj_id] = ObjectConfig::where(["obj_id" => $obj_id])->first();
 
-            if ($this->configs[$obj_id] === null) {
-                $this->configs[$obj_id] = $this->factory()->newInstance();
+            if ($this->object_configs[$obj_id] === null) {
+                $this->object_configs[$obj_id] = $this->factory()->newInstance();
 
-                $this->configs[$obj_id]->setObjId($obj_id);
+                $this->object_configs[$obj_id]->setObjId($obj_id);
             }
         }
 
-        return $this->configs[$obj_id];
+        return $this->object_configs[$obj_id];
     }
 
 
@@ -122,7 +122,7 @@ final class Repository
      */
     public function installTables()/* : void*/
     {
-        Config::updateDB();
+        ObjectConfig::updateDB();
     }
 
 
@@ -134,7 +134,7 @@ final class Repository
     public function isEnabled(int $obj_ref_id) : bool
     {
         if ($this->is_enabled[$obj_ref_id] === null) {
-            $this->is_enabled[$obj_ref_id] = $this->getConfig(self::dic()->objDataCache()->lookupObjId($obj_ref_id))->isEnabled();
+            $this->is_enabled[$obj_ref_id] = $this->getObjectConfig(self::dic()->objDataCache()->lookupObjId($obj_ref_id))->isEnabled();
         }
 
         return $this->is_enabled[$obj_ref_id];
@@ -142,13 +142,13 @@ final class Repository
 
 
     /**
-     * @param Config $config
+     * @param ObjectConfig $object_config
      */
-    public function storeConfig(Config $config)/* : void*/
+    public function storeObjectConfig(ObjectConfig $object_config)/* : void*/
     {
-        $config->store();
+        $object_config->store();
 
-        $this->configs[$config->getObjId()] = $config;
+        $this->object_configs[$object_config->getObjId()] = $object_config;
         $this->is_enabled = [];
     }
 }

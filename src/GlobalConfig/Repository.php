@@ -2,6 +2,7 @@
 
 namespace srag\Plugins\SrSelfDeclaration\GlobalConfig;
 
+use ilDBConstants;
 use ilSrSelfDeclarationPlugin;
 use srag\DIC\SrSelfDeclaration\DICTrait;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
@@ -99,7 +100,11 @@ final class Repository
     public function hasAccess(int $usr_id) : bool
     {
         if ($this->has_access[$usr_id] === null) {
-            $this->has_access[$usr_id] = self::srSelfDeclaration()->objects()->hasWriteAccess(31, $usr_id);
+            $this->has_access[$usr_id] = self::srSelfDeclaration()->objects()->hasWriteAccess(self::dic()
+                                                                                                  ->database()
+                                                                                                  ->queryF('SELECT ref_id FROM object_data INNER JOIN object_reference ON object_data.obj_id=object_reference.obj_id WHERE type=%s',
+                                                                                                      [ilDBConstants::T_TEXT], ["cmps"])
+                                                                                                  ->fetchAssoc()["ref_id"], $usr_id);
         }
 
         return $this->has_access[$usr_id];

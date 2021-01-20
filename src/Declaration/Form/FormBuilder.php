@@ -53,7 +53,7 @@ class FormBuilder extends AbstractFormBuilder
     {
         $buttons = [
             DeclarationCtrl::CMD_SAVE_DECLARATION => self::plugin()->translate("save", DeclarationCtrl::LANG_MODULE),
-            DeclarationCtrl::CMD_BACK             => self::plugin()->translate("cancel", DeclarationCtrl::LANG_MODULE),
+            DeclarationCtrl::CMD_BACK             => self::plugin()->translate("cancel", DeclarationCtrl::LANG_MODULE)
         ];
 
         return $buttons;

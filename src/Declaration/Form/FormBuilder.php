@@ -131,6 +131,12 @@ class FormBuilder extends AbstractFormBuilder
         }
 
         if (intval($data["effort"]) !== $this->declaration->getDefaultEffort()) {
+            if (intval($data["effort"]) !== $this->declaration->getDefaultEffort()) {
+                $inputs["effort"] = $inputs["effort"]->withError(self::dic()->language()->txt("form_msg_value_too_high"));
+
+                $ok = false;
+            }
+
             if (empty(strval($data["effort_reason"]))) {
                 $inputs["effort_reason"] = $inputs["effort_reason"]->withError(self::dic()->language()->txt("msg_input_is_required"));
 

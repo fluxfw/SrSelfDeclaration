@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2caafd242735a2cf0ad5fdffad1fc8b7",
+    "content-hash": "80f52e1b364bbd974de8bfb4fa952602",
     "packages": [
         {
             "name": "srag/custominputguis",
-            "version": "0.41.2",
+            "version": "0.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
-                "reference": "cbbbb3cf2e9857db12a349bcf878192b7bb0ea18"
+                "reference": "26384f04d1a0ae72c53e0598c6e3580dcfedd88c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/cbbbb3cf2e9857db12a349bcf878192b7bb0ea18",
-                "reference": "cbbbb3cf2e9857db12a349bcf878192b7bb0ea18",
+                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/26384f04d1a0ae72c53e0598c6e3580dcfedd88c",
+                "reference": "26384f04d1a0ae72c53e0598c6e3580dcfedd88c",
                 "shasum": ""
             },
             "require": {
@@ -37,7 +37,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\CustomInputGUIs\\SrSelfDeclaration\\": "src/"
+                    "srag\\CustomInputGUIs\\": "src/"
                 },
                 "classmap": [
                     "src/MultiSelectSearchNewInputGUI/class.ObjectChildrenAjaxAutoCompleteCtrl.php",
@@ -67,7 +67,7 @@
                 "input",
                 "table"
             ],
-            "time": "2020-11-13T09:45:09+00:00"
+            "time": "2021-01-20T06:25:40+00:00"
         },
         {
             "name": "srag/datatable",
@@ -102,7 +102,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\DataTableUI\\": "src/"
+                    "srag\\DataTableUI\\SrSelfDeclaration\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

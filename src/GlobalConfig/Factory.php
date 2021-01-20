@@ -1,16 +1,16 @@
 <?php
 
-namespace srag\Plugins\SrSelfDeclaration\Config;
+namespace srag\Plugins\SrSelfDeclaration\GlobalConfig;
 
 use ilSrSelfDeclarationPlugin;
 use srag\DIC\SrSelfDeclaration\DICTrait;
-use srag\Plugins\SrSelfDeclaration\Config\Form\FormBuilder;
+use srag\Plugins\SrSelfDeclaration\GlobalConfig\Form\FormBuilder;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
  * Class Factory
  *
- * @package srag\Plugins\SrSelfDeclaration\Config
+ * @package srag\Plugins\SrSelfDeclaration\GlobalConfig
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -50,26 +50,26 @@ final class Factory
 
 
     /**
-     * @param ConfigCtrl $parent
-     * @param Config     $config
+     * @param GlobalConfigCtrl $parent
+     * @param GlobalConfig     $global_config
      *
      * @return FormBuilder
      */
-    public function newFormBuilderInstance(ConfigCtrl $parent, Config $config) : FormBuilder
+    public function newFormBuilderInstance(GlobalConfigCtrl $parent, GlobalConfig $global_config) : FormBuilder
     {
-        $form = new FormBuilder($parent, $config);
+        $form = new FormBuilder($parent, $global_config);
 
         return $form;
     }
 
 
     /**
-     * @return Config
+     * @return GlobalConfig
      */
-    public function newInstance() : Config
+    public function newInstance() : GlobalConfig
     {
-        $config = new Config();
+        $global_config = new GlobalConfig();
 
-        return $config;
+        return $global_config;
     }
 }

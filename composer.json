@@ -1,7 +1,7 @@
 {
   "name": "srag/srselfdeclaration",
   "description": "Declaration of object members",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "extra": {
     "ilias_plugin": {
       "id": "srselfdeclr",
@@ -10,12 +10,19 @@
       "ilias_max_version": "6.999",
       "slot": "Services/UIComponent/UserInterfaceHook"
     },
-    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
+    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN",
+    "long_description_template": "src/LONG_DESCRIPTION.md"
   },
   "type": "project",
   "keywords": [
-    "ILIAS",
-    "Plugin"
+    "declaration",
+    "effort",
+    "ilias",
+    "interface",
+    "plugin",
+    "self",
+    "text",
+    "user"
   ],
   "homepage": "https://github.com/studer-raimann/SrSelfDeclaration",
   "license": "GPL-3.0-only",
@@ -46,9 +53,10 @@
     },
     "classmap": [
       "classes/",
-      "src/Config/class.ConfigCtrl.php",
       "src/Declaration/class.DeclarationsCtrl.php",
-      "src/Declaration/class.DeclarationCtrl.php"
+      "src/Declaration/class.DeclarationCtrl.php",
+      "src/GlobalConfig/class.GlobalConfigCtrl.php",
+      "src/ObjectConfig/class.ObjectConfigCtrl.php"
     ],
     "files": [
       "vendor/srag/dic/src/PHPVersionChecker.php",

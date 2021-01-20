@@ -1,31 +1,30 @@
 <?php
 
-namespace srag\Plugins\SrSelfDeclaration\Declaration;
+namespace srag\Plugins\SrSelfDeclaration\ObjectConfig;
 
 use ActiveRecord;
 use arConnector;
 use ilObject;
-use ilObjUser;
 use ilSrSelfDeclarationPlugin;
+use srag\CustomInputGUIs\SrSelfDeclaration\TabsInputGUI\MultilangualTabsInputGUI;
 use srag\DIC\SrSelfDeclaration\DICTrait;
-use srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfig;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
- * Class Declaration
+ * Class ObjectConfig
  *
- * @package srag\Plugins\SrSelfDeclaration\Declaration
+ * @package srag\Plugins\SrSelfDeclaration\ObjectConfig
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class Declaration extends ActiveRecord
+class ObjectConfig extends ActiveRecord
 {
 
     use DICTrait;
     use SrSelfDeclarationTrait;
 
     const PLUGIN_CLASS_NAME = ilSrSelfDeclarationPlugin::class;
-    const TABLE_NAME = ilSrSelfDeclarationPlugin::PLUGIN_ID . "_decl";
+    const TABLE_NAME = ilSrSelfDeclarationPlugin::PLUGIN_ID . "_config";
     /**
      * @var int
      *
@@ -36,7 +35,7 @@ class Declaration extends ActiveRecord
      * @con_is_primary   true
      * @con_sequence     true
      */
-    protected $declaration_id;
+    protected $config_id;
     /**
      * @var int
      *
@@ -45,15 +44,24 @@ class Declaration extends ActiveRecord
      * @con_length       8
      * @con_is_notnull   true
      */
-    protected $effort = 0;
+    protected $default_effort = 0;
     /**
-     * @var string
+     * @var array
      *
      * @con_has_field    true
      * @con_fieldtype    text
      * @con_is_notnull   true
      */
-    protected $effort_reason = "";
+    protected $default_texts = [];
+    /**
+     * @var bool
+     *
+     * @con_has_field    true
+     * @con_fieldtype    integer
+     * @con_length       1
+     * @con_is_notnull   true
+     */
+    protected $enabled = false;
     /**
      * @var int
      *
@@ -63,27 +71,10 @@ class Declaration extends ActiveRecord
      * @con_is_notnull   true
      */
     protected $obj_id = 0;
-    /**
-     * @var string
-     *
-     * @con_has_field    true
-     * @con_fieldtype    text
-     * @con_is_notnull   true
-     */
-    protected $text = "";
-    /**
-     * @var int
-     *
-     * @con_has_field    true
-     * @con_fieldtype    integer
-     * @con_length       8
-     * @con_is_notnull   true
-     */
-    protected $usr_id = 0;
 
 
     /**
-     * Declaration constructor
+     * ObjectConfig constructor
      *
      * @param int              $primary_key_value
      * @param arConnector|null $connector
@@ -115,24 +106,6 @@ class Declaration extends ActiveRecord
 
 
     /**
-     * @return int
-     */
-    public function getDeclarationId() : int
-    {
-        return $this->declaration_id;
-    }
-
-
-    /**
-     * @param int $declaration_id
-     */
-    public function setDeclarationId(int $declaration_id)/* : void*/
-    {
-        $this->declaration_id = $declaration_id;
-    }
-
-
-    /**
      * @param string|null $lang_key
      * @param bool        $use_default_if_not_set
      *
@@ -140,43 +113,25 @@ class Declaration extends ActiveRecord
      */
     public function getDefaultText(/*?*/ string $lang_key = null, bool $use_default_if_not_set = true) : string
     {
-        return $this->getObjectConfig()->getDefaultText($lang_key = null, $use_default_if_not_set);
+        return strval(MultilangualTabsInputGUI::getValueForLang($this->default_texts, $lang_key, "default_text", $use_default_if_not_set));
     }
 
 
     /**
-     * @return int
+     * @return array
      */
-    public function getEffort() : int
+    public function getDefaultTexts() : array
     {
-        return $this->effort;
+        return $this->default_texts;
     }
 
 
     /**
-     * @param int $effort
+     * @param array $default_texts
      */
-    public function setEffort(int $effort)/* : void*/
+    public function setDefaultTexts(array $default_texts)/* : void*/
     {
-        $this->effort = $effort;
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getEffortReason() : string
-    {
-        return $this->effort_reason;
-    }
-
-
-    /**
-     * @param string $effort_reason
-     */
-    public function setEffortReason(string $effort_reason)/* : void*/
-    {
-        $this->effort_reason = $effort_reason;
+        $this->default_texts = $default_texts;
     }
 
 
@@ -185,7 +140,7 @@ class Declaration extends ActiveRecord
      */
     public function getMaxEffort() : int
     {
-        return $this->getObjectConfig()->getMaxEffort();
+        return $this->default_effort;
     }
 
 
@@ -217,56 +172,57 @@ class Declaration extends ActiveRecord
 
 
     /**
-     * @return ObjectConfig
-     */
-    public function getObjectConfig() : ObjectConfig
-    {
-        return self::srSelfDeclaration()->objectConfigs()->getObjectConfig($this->obj_id);
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getText() : string
-    {
-        return $this->text;
-    }
-
-
-    /**
-     * @param string $text
-     */
-    public function setText(string $text)/* : void*/
-    {
-        $this->text = $text;
-    }
-
-
-    /**
-     * @return ilObjUser|null
-     */
-    public function getUsr()/* : ?ilObjUser*/
-    {
-        return self::srSelfDeclaration()->objects()->getObjById($this->usr_id);
-    }
-
-
-    /**
      * @return int
      */
-    public function getUsrId() : int
+    public function getObjectConfigId() : int
     {
-        return $this->usr_id;
+        return $this->config_id;
     }
 
 
     /**
-     * @param int $usr_id
+     * @return bool
      */
-    public function setUsrId(int $usr_id)/* : void*/
+    public function isEnabled() : bool
     {
-        $this->usr_id = $usr_id;
+        return $this->enabled;
+    }
+
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled(bool $enabled)/* : void*/
+    {
+        $this->enabled = $enabled;
+    }
+
+
+    /**
+     * @param string $default_text
+     * @param string $lang_key
+     */
+    public function setDefaultText(string $default_text, string $lang_key)/* : void*/
+    {
+        MultilangualTabsInputGUI::setValueForLang($this->default_texts, $default_text, $lang_key, "default_text");
+    }
+
+
+    /**
+     * @param int $max_effort
+     */
+    public function setMaxEffort(int $max_effort)/* : void*/
+    {
+        $this->default_effort = $max_effort;
+    }
+
+
+    /**
+     * @param int $object_config_id
+     */
+    public function setObjectConfigId(int $object_config_id)/* : void*/
+    {
+        $this->config_id = $object_config_id;
     }
 
 
@@ -278,6 +234,12 @@ class Declaration extends ActiveRecord
         $field_value = $this->{$field_name};
 
         switch ($field_name) {
+            case "enabled":
+                return ($field_value ? 1 : 0);
+
+            case "default_texts":
+                return json_encode($field_value);
+
             default:
                 return parent::sleep($field_name);
         }
@@ -290,11 +252,16 @@ class Declaration extends ActiveRecord
     public function wakeUp(/*string*/ $field_name, $field_value)
     {
         switch ($field_name) {
-            case "declaration_id":
-            case "effort":
+            case "enabled":
+                return boolval($field_value);
+
+            case "config_id":
+            case "default_effort":
             case "obj_id":
-            case "usr_id":
                 return intval($field_value);
+
+            case "default_texts":
+                return (array) json_decode($field_value, true);
 
             default:
                 return parent::wakeUp($field_name, $field_value);

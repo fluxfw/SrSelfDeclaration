@@ -101,6 +101,12 @@ final class Repository
                 $this->declarations_of_object_for_user[$cache_key]->setObjId($obj_id);
 
                 $this->declarations_of_object_for_user[$cache_key]->setUsrId($usr_id);
+
+                $object_config = self::srSelfDeclaration()->objectConfigs()->getObjectConfig($obj_id);
+
+                $this->declarations_of_object_for_user[$cache_key]->setText($object_config->getDefaultText());
+
+                $this->declarations_of_object_for_user[$cache_key]->setEffort($object_config->getMaxEffort());
             }
         }
 
@@ -137,7 +143,7 @@ final class Repository
     {
         $a = self::srSelfDeclaration()->objects()->supportsObjType($obj_ref_id);
         $b = self::srSelfDeclaration()
-            ->configs()
+            ->objectConfigs()
             ->isEnabled($obj_ref_id);
         $c = self::srSelfDeclaration()->objects()->hasReadAccess($obj_ref_id, $usr_id);
         $d = !self::srSelfDeclaration()->objects()->hasWriteAccess($obj_ref_id, $usr_id);
@@ -147,7 +153,7 @@ final class Repository
         if ($this->has_access_to_declaration_of_object_for_user[$cache_key] === null) {
             $this->has_access_to_declaration_of_object_for_user[$cache_key] = (self::srSelfDeclaration()->objects()->supportsObjType($obj_ref_id)
                 && self::srSelfDeclaration()
-                    ->configs()
+                    ->objectConfigs()
                     ->isEnabled($obj_ref_id)
                 && self::srSelfDeclaration()->objects()->hasReadAccess($obj_ref_id, $usr_id)
                 && !self::srSelfDeclaration()->objects()->hasWriteAccess($obj_ref_id, $usr_id));
@@ -170,7 +176,7 @@ final class Repository
         if ($this->has_access_to_declarations_of_object[$cache_key] === null) {
             $this->has_access_to_declarations_of_object[$cache_key] = (self::srSelfDeclaration()->objects()->supportsObjType($obj_ref_id)
                 && self::srSelfDeclaration()
-                    ->configs()
+                    ->objectConfigs()
                     ->isEnabled($obj_ref_id)
                 && self::srSelfDeclaration()->objects()->hasWriteAccess($obj_ref_id, $usr_id));
         }

@@ -8,9 +8,9 @@ use ilNonEditableValueGUI;
 use ilSrSelfDeclarationPlugin;
 use srag\CustomInputGUIs\SrSelfDeclaration\FormBuilder\AbstractFormBuilder;
 use srag\CustomInputGUIs\SrSelfDeclaration\InputGUIWrapperUIInputComponent\InputGUIWrapperUIInputComponent;
-use srag\Plugins\SrSelfDeclaration\Config\ConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Declaration\Declaration;
 use srag\Plugins\SrSelfDeclaration\Declaration\DeclarationCtrl;
+use srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
@@ -66,10 +66,10 @@ class FormBuilder extends AbstractFormBuilder
     protected function getData() : array
     {
         $data = [
-            "text"           => $this->declaration->getText(),
-            "default_effort" => $this->declaration->getDefaultEffort(),
-            "effort"         => $this->declaration->getEffort(),
-            "effort_reason"  => $this->declaration->getEffortReason()
+            "text"          => $this->declaration->getText(),
+            "max_effort"    => $this->declaration->getMaxEffort(),
+            "effort"        => $this->declaration->getEffort(),
+            "effort_reason" => $this->declaration->getEffortReason()
         ];
 
         return $data;
@@ -82,10 +82,10 @@ class FormBuilder extends AbstractFormBuilder
     protected function getFields() : array
     {
         $fields = [
-            "text"           => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("text", DeclarationCtrl::LANG_MODULE))->withRequired(true),
-            "default_effort" => new InputGUIWrapperUIInputComponent(new ilNonEditableValueGUI(self::plugin()->translate("default_effort", ConfigCtrl::LANG_MODULE))),
-            "effort"         => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("effort", DeclarationCtrl::LANG_MODULE))->withRequired(true),
-            "effort_reason"  => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("effort_reason", DeclarationCtrl::LANG_MODULE))->withByline(self::plugin()
+            "text"          => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("text", DeclarationCtrl::LANG_MODULE))->withRequired(true),
+            "max_effort"    => new InputGUIWrapperUIInputComponent(new ilNonEditableValueGUI(self::plugin()->translate("max_effort", ObjectConfigCtrl::LANG_MODULE))),
+            "effort"        => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("effort", DeclarationCtrl::LANG_MODULE))->withRequired(true),
+            "effort_reason" => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("effort_reason", DeclarationCtrl::LANG_MODULE))->withByline(self::plugin()
                 ->translate("effort_reason_info", DeclarationCtrl::LANG_MODULE))
         ];
 
@@ -130,7 +130,13 @@ class FormBuilder extends AbstractFormBuilder
             $ok = false;
         }
 
-        if (intval($data["effort"]) !== $this->declaration->getDefaultEffort()) {
+        if (intval($data["effort"]) !== $this->declaration->getMaxEffort()) {
+            if (intval($data["effort"]) > $this->declaration->getMaxEffort()) {
+                $inputs["effort"] = $inputs["effort"]->withError(self::dic()->language()->txt("form_msg_value_too_high"));
+
+                $ok = false;
+            }
+
             if (empty(strval($data["effort_reason"]))) {
                 $inputs["effort_reason"] = $inputs["effort_reason"]->withError(self::dic()->language()->txt("msg_input_is_required"));
 

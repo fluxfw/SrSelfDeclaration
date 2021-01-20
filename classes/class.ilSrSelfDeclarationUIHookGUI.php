@@ -1,8 +1,8 @@
 <?php
 
 use srag\DIC\SrSelfDeclaration\DICTrait;
-use srag\Plugins\SrSelfDeclaration\Config\ConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Declaration\DeclarationsCtrl;
+use srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfigCtrl;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
@@ -57,7 +57,7 @@ class ilSrSelfDeclarationUIHookGUI extends ilUIHookPluginGUI
         if ($a_part === self::PAR_SUB_TABS) {
             if ((in_array(self::dic()->ctrl()->getCmdClass(), array_map("strtolower", [ilObjCourseGUI::class])) && self::dic()->ctrl()->getCmd() === "edit")
             ) {
-                ConfigCtrl::addTabs($this->getRefId());
+                ObjectConfigCtrl::addTabs($this->getRefId());
             }
 
             if (self::dic()->ctrl()->getCmdClass() === strtolower(ilCourseMembershipGUI::class)

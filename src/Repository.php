@@ -4,9 +4,10 @@ namespace srag\Plugins\SrSelfDeclaration;
 
 use ilSrSelfDeclarationPlugin;
 use srag\DIC\SrSelfDeclaration\DICTrait;
-use srag\Plugins\SrSelfDeclaration\Config\Repository as ConfigsRepository;
 use srag\Plugins\SrSelfDeclaration\Declaration\Repository as DeclarationsRepository;
+use srag\Plugins\SrSelfDeclaration\GlobalConfig\Repository as GlobalConfigRepository;
 use srag\Plugins\SrSelfDeclaration\Object\Repository as ObjectsRepository;
+use srag\Plugins\SrSelfDeclaration\ObjectConfig\Repository as ObjectConfigsRepository;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
@@ -52,15 +53,6 @@ final class Repository
 
 
     /**
-     * @return ConfigsRepository
-     */
-    public function configs() : ConfigsRepository
-    {
-        return ConfigsRepository::getInstance();
-    }
-
-
-    /**
      * @return DeclarationsRepository
      */
     public function declarations() : DeclarationsRepository
@@ -74,9 +66,19 @@ final class Repository
      */
     public function dropTables()/*:void*/
     {
-        $this->configs()->dropTables();
         $this->declarations()->dropTables();
+        $this->globalConfig()->dropTables();
+        $this->objectConfigs()->dropTables();
         $this->objects()->dropTables();
+    }
+
+
+    /**
+     * @return GlobalConfigRepository
+     */
+    public function globalConfig() : GlobalConfigRepository
+    {
+        return GlobalConfigRepository::getInstance();
     }
 
 
@@ -85,9 +87,19 @@ final class Repository
      */
     public function installTables()/*:void*/
     {
-        $this->configs()->installTables();
         $this->declarations()->installTables();
+        $this->globalConfig()->installTables();
+        $this->objectConfigs()->installTables();
         $this->objects()->installTables();
+    }
+
+
+    /**
+     * @return ObjectConfigsRepository
+     */
+    public function objectConfigs() : ObjectConfigsRepository
+    {
+        return ObjectConfigsRepository::getInstance();
     }
 
 

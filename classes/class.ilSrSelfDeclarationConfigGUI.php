@@ -4,6 +4,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use srag\DevTools\SrSelfDeclaration\DevToolsCtrl;
 use srag\DIC\SrSelfDeclaration\DICTrait;
+use srag\Plugins\SrSelfDeclaration\GlobalConfig\GlobalConfigCtrl;
 
 /**
  * Class ilSrSelfDeclarationConfigGUI
@@ -44,6 +45,10 @@ class ilSrSelfDeclarationConfigGUI extends ilPluginConfigGUI
                 self::dic()->ctrl()->forwardCommand(new DevToolsCtrl($this, self::plugin()));
                 break;
 
+            case strtolower(GlobalConfigCtrl::class):
+                self::dic()->ctrl()->forwardCommand(new GlobalConfigCtrl());
+                break;
+
             default:
                 $cmd = self::dic()->ctrl()->getCmd();
 
@@ -65,7 +70,7 @@ class ilSrSelfDeclarationConfigGUI extends ilPluginConfigGUI
      */
     protected function configure()/*: void*/
     {
-        self::dic()->ctrl()->redirectByClass(DevToolsCtrl::class);
+        self::dic()->ctrl()->redirectByClass(GlobalConfigCtrl::class, GlobalConfigCtrl::CMD_EDIT_GLOBAL_CONFIG);
     }
 
 
@@ -74,6 +79,8 @@ class ilSrSelfDeclarationConfigGUI extends ilPluginConfigGUI
      */
     protected function setTabs()/*: void*/
     {
+        GlobalConfigCtrl::addTabs();
+
         DevToolsCtrl::addTabs(self::plugin());
 
         self::dic()->locator()->addItem(ilSrSelfDeclarationPlugin::PLUGIN_NAME, self::dic()->ctrl()->getLinkTarget($this, self::CMD_CONFIGURE));

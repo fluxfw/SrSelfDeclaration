@@ -1,50 +1,29 @@
 <?php
 
-namespace srag\Plugins\SrSelfDeclaration\Config;
+namespace srag\Plugins\SrSelfDeclaration\GlobalConfig;
 
 use ActiveRecord;
 use arConnector;
-use ilObject;
 use ilSrSelfDeclarationPlugin;
 use srag\CustomInputGUIs\SrSelfDeclaration\TabsInputGUI\MultilangualTabsInputGUI;
 use srag\DIC\SrSelfDeclaration\DICTrait;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
- * Class Config
+ * Class GlobalConfig
  *
- * @package srag\Plugins\SrSelfDeclaration\Config
+ * @package srag\Plugins\SrSelfDeclaration\GlobalConfig
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class Config extends ActiveRecord
+class GlobalConfig extends ActiveRecord
 {
 
     use DICTrait;
     use SrSelfDeclarationTrait;
 
     const PLUGIN_CLASS_NAME = ilSrSelfDeclarationPlugin::class;
-    const TABLE_NAME = ilSrSelfDeclarationPlugin::PLUGIN_ID . "_config";
-    /**
-     * @var int
-     *
-     * @con_has_field    true
-     * @con_fieldtype    integer
-     * @con_length       8
-     * @con_is_notnull   true
-     * @con_is_primary   true
-     * @con_sequence     true
-     */
-    protected $config_id;
-    /**
-     * @var int
-     *
-     * @con_has_field    true
-     * @con_fieldtype    integer
-     * @con_length       8
-     * @con_is_notnull   true
-     */
-    protected $default_effort = 0;
+    const TABLE_NAME = ilSrSelfDeclarationPlugin::PLUGIN_ID . "_glbl_cnfg";
     /**
      * @var array
      *
@@ -69,12 +48,23 @@ class Config extends ActiveRecord
      * @con_fieldtype    integer
      * @con_length       8
      * @con_is_notnull   true
+     * @con_is_primary   true
+     * @con_sequence     true
      */
-    protected $obj_id = 0;
+    protected $global_config_id;
+    /**
+     * @var int
+     *
+     * @con_has_field    true
+     * @con_fieldtype    integer
+     * @con_length       8
+     * @con_is_notnull   true
+     */
+    protected $max_effort = 0;
 
 
     /**
-     * Config constructor
+     * GlobalConfig constructor
      *
      * @param int              $primary_key_value
      * @param arConnector|null $connector
@@ -97,47 +87,11 @@ class Config extends ActiveRecord
 
 
     /**
-     * @return int
-     */
-    public function getConfigId() : int
-    {
-        return $this->config_id;
-    }
-
-
-    /**
-     * @param int $config_id
-     */
-    public function setConfigId(int $config_id)/* : void*/
-    {
-        $this->config_id = $config_id;
-    }
-
-
-    /**
      * @inheritDoc
      */
     public function getConnectorContainerName() : string
     {
         return self::TABLE_NAME;
-    }
-
-
-    /**
-     * @return int
-     */
-    public function getDefaultEffort() : int
-    {
-        return $this->default_effort;
-    }
-
-
-    /**
-     * @param int $default_effort
-     */
-    public function setDefaultEffort(int $default_effort)/* : void*/
-    {
-        $this->default_effort = $default_effort;
     }
 
 
@@ -172,29 +126,38 @@ class Config extends ActiveRecord
 
 
     /**
-     * @return ilObject|null
+     * @return int
      */
-    public function getObj()/* : ?ilObject*/
+    public function getGlobalConfigId() : int
     {
-        return self::srSelfDeclaration()->objects()->getObjById($this->obj_id);
+        return $this->global_config_id;
+    }
+
+
+    /**
+     * @param int $global_config_id
+     */
+    public function setGlobalConfigId(int $global_config_id)/* : void*/
+    {
+        $this->global_config_id = $global_config_id;
     }
 
 
     /**
      * @return int
      */
-    public function getObjId() : int
+    public function getMaxEffort() : int
     {
-        return $this->obj_id;
+        return $this->max_effort;
     }
 
 
     /**
-     * @param int $obj_id
+     * @param int $max_effort
      */
-    public function setObjId(int $obj_id)/* : void*/
+    public function setMaxEffort(int $max_effort)/* : void*/
     {
-        $this->obj_id = $obj_id;
+        $this->max_effort = $max_effort;
     }
 
 
@@ -255,9 +218,8 @@ class Config extends ActiveRecord
             case "enabled":
                 return boolval($field_value);
 
-            case "config_id":
-            case "default_effort":
-            case "obj_id":
+            case "global_config_id":
+            case "max_effort":
                 return intval($field_value);
 
             case "default_texts":

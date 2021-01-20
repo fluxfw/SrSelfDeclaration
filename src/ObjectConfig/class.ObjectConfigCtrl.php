@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrSelfDeclaration\Config;
+namespace srag\Plugins\SrSelfDeclaration\ObjectConfig;
 
 use ilLink;
 use ilObject;
@@ -11,31 +11,27 @@ use srag\DIC\SrSelfDeclaration\DICTrait;
 use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
 
 /**
- * Class ConfigCtrl
+ * Class ObjectConfigCtrl
  *
- * @package           srag\Plugins\SrSelfDeclaration\Config
+ * @package           srag\Plugins\SrSelfDeclaration\ObjectConfig
  *
  * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *
- * @ilCtrl_isCalledBy srag\Plugins\SrSelfDeclaration\Config\ConfigCtrl: ilUIPluginRouterGUI
+ * @ilCtrl_isCalledBy srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfigCtrl: ilUIPluginRouterGUI
  */
-class ConfigCtrl
+class ObjectConfigCtrl
 {
 
     use DICTrait;
     use SrSelfDeclarationTrait;
 
     const CMD_BACK = "back";
-    const CMD_EDIT_CONFIG = "editConfig";
-    const CMD_UPDATE_CONFIG = "updateConfig";
+    const CMD_EDIT_OBJECT_CONFIG = "editObjectConfig";
+    const CMD_UPDATE_OBJECT_CONFIG = "updateObjectConfig";
     const GET_PARAM_REF_ID = "ref_id";
-    const LANG_MODULE = "config";
+    const LANG_MODULE = "object_config";
     const PLUGIN_CLASS_NAME = ilSrSelfDeclarationPlugin::class;
-    const TAB_EDIT_CONFIG = "edit_config";
-    /**
-     * @var Config
-     */
-    protected $config;
+    const TAB_EDIT_OBJECT_CONFIG = "edit_object_config";
     /**
      * @var ilObject
      */
@@ -44,10 +40,14 @@ class ConfigCtrl
      * @var int
      */
     protected $obj_ref_id;
+    /**
+     * @var ObjectConfig
+     */
+    protected $object_config;
 
 
     /**
-     * ConfigCtrl constructor
+     * ObjectConfigCtrl constructor
      */
     public function __construct()
     {
@@ -60,13 +60,13 @@ class ConfigCtrl
      */
     public static function addTabs(int $obj_ref_id)/* : void*/
     {
-        if (self::srSelfDeclaration()->configs()->hasAccess($obj_ref_id, self::dic()->user()->getId())) {
+        if (self::srSelfDeclaration()->objectConfigs()->hasAccess($obj_ref_id, self::dic()->user()->getId())) {
             self::dic()->ctrl()->setParameterByClass(self::class, self::GET_PARAM_REF_ID, $obj_ref_id);
 
             self::dic()
                 ->tabs()
-                ->addSubTab(self::TAB_EDIT_CONFIG, self::plugin()->translate("config", self::LANG_MODULE),
-                    self::dic()->ctrl()->getLinkTargetByClass([ilUIPluginRouterGUI::class, self::class], self::CMD_EDIT_CONFIG));
+                ->addSubTab(self::TAB_EDIT_OBJECT_CONFIG, self::plugin()->translate("config", self::LANG_MODULE),
+                    self::dic()->ctrl()->getLinkTargetByClass([ilUIPluginRouterGUI::class, self::class], self::CMD_EDIT_OBJECT_CONFIG));
         }
     }
 
@@ -78,7 +78,7 @@ class ConfigCtrl
     {
         $this->obj_ref_id = intval(filter_input(INPUT_GET, self::GET_PARAM_REF_ID));
 
-        if (!self::srSelfDeclaration()->configs()->hasAccess($this->obj_ref_id, self::dic()->user()->getId())) {
+        if (!self::srSelfDeclaration()->objectConfigs()->hasAccess($this->obj_ref_id, self::dic()->user()->getId())) {
             die();
         }
 
@@ -86,7 +86,7 @@ class ConfigCtrl
 
         self::dic()->ctrl()->saveParameter($this, self::GET_PARAM_REF_ID);
 
-        $this->config = self::srSelfDeclaration()->configs()->getConfig($this->obj->getId());
+        $this->object_config = self::srSelfDeclaration()->objectConfigs()->getObjectConfig($this->obj->getId());
 
         $this->setTabs();
 
@@ -98,8 +98,8 @@ class ConfigCtrl
 
                 switch ($cmd) {
                     case self::CMD_BACK:
-                    case self::CMD_EDIT_CONFIG:
-                    case self::CMD_UPDATE_CONFIG:
+                    case self::CMD_EDIT_OBJECT_CONFIG:
+                    case self::CMD_UPDATE_OBJECT_CONFIG:
                         $this->{$cmd}();
                         break;
 
@@ -123,11 +123,11 @@ class ConfigCtrl
     /**
      *
      */
-    protected function editConfig()/* : void*/
+    protected function editObjectConfig()/* : void*/
     {
-        self::dic()->tabs()->activateTab(self::TAB_EDIT_CONFIG);
+        self::dic()->tabs()->activateTab(self::TAB_EDIT_OBJECT_CONFIG);
 
-        $form = self::srSelfDeclaration()->configs()->factory()->newFormBuilderInstance($this, $this->config);
+        $form = self::srSelfDeclaration()->objectConfigs()->factory()->newFormBuilderInstance($this, $this->object_config);
 
         self::output()->output($form, true);
     }
@@ -142,18 +142,20 @@ class ConfigCtrl
 
         self::dic()->tabs()->setBackTarget($this->obj->getTitle(), self::dic()->ctrl()->getLinkTarget($this, self::CMD_BACK));
 
-        self::dic()->tabs()->addTab(self::TAB_EDIT_CONFIG, self::plugin()->translate("config", self::LANG_MODULE), self::dic()->ctrl()->getLinkTargetByClass(self::class, self::CMD_EDIT_CONFIG));
+        self::dic()
+            ->tabs()
+            ->addTab(self::TAB_EDIT_OBJECT_CONFIG, self::plugin()->translate("config", self::LANG_MODULE), self::dic()->ctrl()->getLinkTargetByClass(self::class, self::CMD_EDIT_OBJECT_CONFIG));
     }
 
 
     /**
      *
      */
-    protected function updateConfig()/* : void*/
+    protected function updateObjectConfig()/* : void*/
     {
-        self::dic()->tabs()->activateTab(self::TAB_EDIT_CONFIG);
+        self::dic()->tabs()->activateTab(self::TAB_EDIT_OBJECT_CONFIG);
 
-        $form = self::srSelfDeclaration()->configs()->factory()->newFormBuilderInstance($this, $this->config);
+        $form = self::srSelfDeclaration()->objectConfigs()->factory()->newFormBuilderInstance($this, $this->object_config);
 
         if (!$form->storeForm()) {
             self::output()->output($form, true);
@@ -163,6 +165,6 @@ class ConfigCtrl
 
         ilUtil::sendSuccess(self::plugin()->translate("saved", self::LANG_MODULE), true);
 
-        self::dic()->ctrl()->redirect($this, self::CMD_EDIT_CONFIG);
+        self::dic()->ctrl()->redirect($this, self::CMD_EDIT_OBJECT_CONFIG);
     }
 }

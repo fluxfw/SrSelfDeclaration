@@ -1,9 +1,3 @@
-config_config#:#Config declarations
-config_default_effort#:#Default effort
-config_default_text#:#Default text
-config_enabled#:#Enabled
-config_save#:#Save
-config_saved#:#Saved
 declarations_declarations#:#Declarations
 declarations_effort#:#Performed effort
 declarations_effort_reason#:#Effort reason
@@ -17,3 +11,15 @@ declaration_fill#:#Fill
 declaration_save#:#Save
 declaration_saved#:#Saved
 declaration_text#:#Text
+global_config_config#:#Default config declarations
+global_config_default_text#:#Default text
+global_config_enabled#:#Enabled
+global_config_max_effort#:#Maximal effort
+global_config_save#:#Save
+global_config_saved#:#Saved
+object_config_config#:#Config declarations
+object_config_default_text#:#Default text
+object_config_enabled#:#Enabled
+object_config_max_effort#:#Maximal effort
+object_config_save#:#Save
+object_config_saved#:#Saved

@@ -101,6 +101,12 @@ final class Repository
                 $this->declarations_of_object_for_user[$cache_key]->setObjId($obj_id);
 
                 $this->declarations_of_object_for_user[$cache_key]->setUsrId($usr_id);
+
+                $object_config = self::srSelfDeclaration()->objectConfigs()->getObjectConfig($obj_id);
+
+                $this->declarations_of_object_for_user[$cache_key]->setText($object_config->getDefaultText());
+
+                $this->declarations_of_object_for_user[$cache_key]->setEffort($object_config->getMaxEffort());
             }
         }
 

@@ -106,15 +106,6 @@ class Declaration extends ActiveRecord
 
 
     /**
-     * @return ObjectConfig
-     */
-    public function getConfig() : ObjectConfig
-    {
-        return self::srSelfDeclaration()->objectConfigs()->getObjectConfig($this->obj_id);
-    }
-
-
-    /**
      * @inheritDoc
      */
     public function getConnectorContainerName() : string
@@ -149,7 +140,7 @@ class Declaration extends ActiveRecord
      */
     public function getDefaultText(/*?*/ string $lang_key = null, bool $use_default_if_not_set = true) : string
     {
-        return $this->getConfig()->getDefaultText($lang_key = null, $use_default_if_not_set);
+        return $this->getObjectConfig()->getDefaultText($lang_key = null, $use_default_if_not_set);
     }
 
 
@@ -158,11 +149,7 @@ class Declaration extends ActiveRecord
      */
     public function getEffort() : int
     {
-        if (!empty($this->effort)) {
-            return $this->effort;
-        } else {
-            return $this->getMaxEffort();
-        }
+        return $this->effort;
     }
 
 
@@ -198,7 +185,7 @@ class Declaration extends ActiveRecord
      */
     public function getMaxEffort() : int
     {
-        return $this->getConfig()->getMaxEffort();
+        return $this->getObjectConfig()->getMaxEffort();
     }
 
 
@@ -230,15 +217,20 @@ class Declaration extends ActiveRecord
 
 
     /**
+     * @return ObjectConfig
+     */
+    public function getObjectConfig() : ObjectConfig
+    {
+        return self::srSelfDeclaration()->objectConfigs()->getObjectConfig($this->obj_id);
+    }
+
+
+    /**
      * @return string
      */
     public function getText() : string
     {
-        if (!empty($this->text)) {
-            return $this->text;
-        } else {
-            return $this->getDefaultText();
-        }
+        return $this->text;
     }
 
 

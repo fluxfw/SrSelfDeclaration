@@ -11,6 +11,12 @@ declaration_fill#:#Ausfüllen
 declaration_save#:#Speichern
 declaration_saved#:#Gespeichert
 declaration_text#:#Text
+global_config_config#:#Standard Konfiguration Deklarationen
+global_config_default_text#:#Vorgabe Text
+global_config_enabled#:#Aktiviert
+global_config_max_effort#:#Maximaler Aufwand
+global_config_save#:#Speichern
+global_config_saved#:#Gespeichert
 object_config_config#:#Konfiguration Deklarationen
 object_config_default_text#:#Vorgabe Text
 object_config_enabled#:#Aktiviert

@@ -131,7 +131,7 @@ class FormBuilder extends AbstractFormBuilder
         }
 
         if (intval($data["effort"]) !== $this->declaration->getMaxEffort()) {
-            if (intval($data["effort"]) !== $this->declaration->getMaxEffort()) {
+            if (intval($data["effort"]) > $this->declaration->getMaxEffort()) {
                 $inputs["effort"] = $inputs["effort"]->withError(self::dic()->language()->txt("form_msg_value_too_high"));
 
                 $ok = false;

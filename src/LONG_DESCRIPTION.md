@@ -2,15 +2,21 @@ Current only courses are supported
 
 ### Config
 
-You can enable it per object and set a default declaration text
+You can configure it global for all objects (new) and adjust it per object if needed
 
-#### Tab
+#### Global
 
-![Config tab](../doc/images/object_config_tab.png)
+![Global config form](../doc/images/global_config_form.png)
 
-#### Form
+#### Object
 
-![Config form](../doc/images/object_config_form.png)
+##### Tab
+
+![Object config tab](../doc/images/object_config_tab.png)
+
+##### Form
+
+![Object config form](../doc/images/object_config_form.png)
 
 ### Declaration block
 

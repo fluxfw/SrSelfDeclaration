@@ -92,6 +92,14 @@ final class Repository
                 $this->object_configs[$obj_id] = $this->factory()->newInstance();
 
                 $this->object_configs[$obj_id]->setObjId($obj_id);
+
+                $global_config = self::srSelfDeclaration()->globalConfig()->getGlobalConfig();
+
+                $this->object_configs[$obj_id]->setEnabled($global_config->isEnabled());
+
+                $this->object_configs[$obj_id]->setDefaultTexts($global_config->getDefaultTexts());
+
+                $this->object_configs[$obj_id]->setMaxEffort($global_config->getMaxEffort());
             }
         }
 

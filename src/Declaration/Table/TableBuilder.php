@@ -60,8 +60,8 @@ class TableBuilder extends AbstractTableBuilder
         self::dic()->ui()->mainTemplate()->setRightContent(self::output()->getHTML(self::dic()->ui()->factory()->listing()->descriptive(array_filter(array_map(function ($value) : string {
             return nl2br(implode("\n", array_map("htmlspecialchars", explode("\n", strval($value)))), false);
         }, [
-            self::plugin()->translate("default_text", ConfigCtrl::LANG_MODULE)   => $this->config->getDefaultText(),
-            self::plugin()->translate("default_effort", ConfigCtrl::LANG_MODULE) => $this->config->getDefaultEffort()
+            self::plugin()->translate("default_text", ConfigCtrl::LANG_MODULE) => $this->config->getDefaultText(),
+            self::plugin()->translate("max_effort", ConfigCtrl::LANG_MODULE)   => $this->config->getMaxEffort()
         ])))));
 
         return parent::render();

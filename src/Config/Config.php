@@ -124,24 +124,6 @@ class Config extends ActiveRecord
 
 
     /**
-     * @return int
-     */
-    public function getDefaultEffort() : int
-    {
-        return $this->default_effort;
-    }
-
-
-    /**
-     * @param int $default_effort
-     */
-    public function setDefaultEffort(int $default_effort)/* : void*/
-    {
-        $this->default_effort = $default_effort;
-    }
-
-
-    /**
      * @param string|null $lang_key
      * @param bool        $use_default_if_not_set
      *
@@ -168,6 +150,15 @@ class Config extends ActiveRecord
     public function setDefaultTexts(array $default_texts)/* : void*/
     {
         $this->default_texts = $default_texts;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getMaxEffort() : int
+    {
+        return $this->default_effort;
     }
 
 
@@ -223,6 +214,15 @@ class Config extends ActiveRecord
     public function setDefaultText(string $default_text, string $lang_key)/* : void*/
     {
         MultilangualTabsInputGUI::setValueForLang($this->default_texts, $default_text, $lang_key, "default_text");
+    }
+
+
+    /**
+     * @param int $max_effort
+     */
+    public function setMaxEffort(int $max_effort)/* : void*/
+    {
+        $this->default_effort = $max_effort;
     }
 
 

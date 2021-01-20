@@ -142,15 +142,6 @@ class Declaration extends ActiveRecord
 
 
     /**
-     * @return int
-     */
-    public function getDefaultEffort() : int
-    {
-        return $this->getConfig()->getDefaultEffort();
-    }
-
-
-    /**
      * @param string|null $lang_key
      * @param bool        $use_default_if_not_set
      *
@@ -170,7 +161,7 @@ class Declaration extends ActiveRecord
         if (!empty($this->effort)) {
             return $this->effort;
         } else {
-            return $this->getDefaultEffort();
+            return $this->getMaxEffort();
         }
     }
 
@@ -199,6 +190,15 @@ class Declaration extends ActiveRecord
     public function setEffortReason(string $effort_reason)/* : void*/
     {
         $this->effort_reason = $effort_reason;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getMaxEffort() : int
+    {
+        return $this->getConfig()->getMaxEffort();
     }
 
 

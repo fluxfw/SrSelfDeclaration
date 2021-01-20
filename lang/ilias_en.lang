@@ -1,7 +1,7 @@
 config_config#:#Config declarations
-config_default_effort#:#Default effort
 config_default_text#:#Default text
 config_enabled#:#Enabled
+config_max_effort#:#Maximal effort
 config_save#:#Save
 config_saved#:#Saved
 declarations_declarations#:#Declarations

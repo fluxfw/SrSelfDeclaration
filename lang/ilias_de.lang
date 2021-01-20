@@ -1,7 +1,7 @@
 config_config#:#Konfiguration Deklarationen
-config_default_effort#:#Vorgabe Aufwand
 config_default_text#:#Vorgabe Text
 config_enabled#:#Aktiviert
+config_max_effort#:#Maximaler Aufwand
 config_save#:#Speichern
 config_saved#:#Gespeichert
 declarations_declarations#:#Deklarationen

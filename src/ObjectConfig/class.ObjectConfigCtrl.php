@@ -2,6 +2,8 @@
 
 namespace srag\Plugins\SrSelfDeclaration\ObjectConfig;
 
+require_once __DIR__ . "/../../vendor/autoload.php";
+
 use ilLink;
 use ilObject;
 use ilSrSelfDeclarationPlugin;

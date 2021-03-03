@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/../vendor/autoload.php";
+
 use srag\DIC\SrSelfDeclaration\DICTrait;
 use srag\Plugins\SrSelfDeclaration\Declaration\DeclarationsCtrl;
 use srag\Plugins\SrSelfDeclaration\ObjectConfig\ObjectConfigCtrl;

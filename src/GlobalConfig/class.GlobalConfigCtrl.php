@@ -2,6 +2,8 @@
 
 namespace srag\Plugins\SrSelfDeclaration\GlobalConfig;
 
+require_once __DIR__ . "/../../vendor/autoload.php";
+
 use ilSrSelfDeclarationPlugin;
 use ilUtil;
 use srag\DIC\SrSelfDeclaration\DICTrait;

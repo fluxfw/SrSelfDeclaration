@@ -1,7 +1,7 @@
 {
   "name": "srag/srselfdeclaration",
   "description": "Declaration of object members",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "extra": {
     "ilias_plugin": {
       "id": "srselfdeclr",

@@ -74,6 +74,9 @@
       "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport",
       "srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
       "srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\GeneratePluginReadme::generatePluginReadme"
+    ],
+    "update-version": [
+      "srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\UpdateVersion::updateVersion"
     ]
   }
 }

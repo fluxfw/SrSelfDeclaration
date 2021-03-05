@@ -269,7 +269,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\GeneratePluginInfosHelper\\": "src/"
+                    "srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

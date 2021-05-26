@@ -11,8 +11,6 @@ use srag\DIC\SrSelfDeclaration\DICTrait;
  * Class Factory
  *
  * @package srag\DataTableUI\SrSelfDeclaration\Implementation\Column\Formatter\Actions
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class Factory implements FactoryInterface
 {

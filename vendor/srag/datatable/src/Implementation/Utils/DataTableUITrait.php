@@ -9,8 +9,6 @@ use srag\DataTableUI\SrSelfDeclaration\Implementation\Factory;
  * Trait DataTableUITrait
  *
  * @package srag\DataTableUI\SrSelfDeclaration\Implementation\Utils
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 trait DataTableUITrait
 {

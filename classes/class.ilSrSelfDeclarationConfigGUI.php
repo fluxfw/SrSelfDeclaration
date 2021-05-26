@@ -9,8 +9,6 @@ use srag\Plugins\SrSelfDeclaration\GlobalConfig\GlobalConfigCtrl;
 /**
  * Class ilSrSelfDeclarationConfigGUI
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\DevTools\SrSelfDeclaration\DevToolsCtrl: ilSrSelfDeclarationConfigGUI
  */
 class ilSrSelfDeclarationConfigGUI extends ilPluginConfigGUI

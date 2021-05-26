@@ -16,8 +16,6 @@ use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
  * Class Block
  *
  * @package srag\Plugins\SrSelfDeclaration\Declaration\Block
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class Block extends ilBlockGUI
 {

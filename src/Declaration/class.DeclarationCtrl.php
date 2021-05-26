@@ -16,8 +16,6 @@ use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
  *
  * @package           srag\Plugins\SrSelfDeclaration\Declaration
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\Plugins\SrSelfDeclaration\Declaration\DeclarationCtrl: ilUIPluginRouterGUI
  */
 class DeclarationCtrl

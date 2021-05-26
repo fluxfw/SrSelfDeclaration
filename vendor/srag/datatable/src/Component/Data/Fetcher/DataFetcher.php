@@ -10,8 +10,6 @@ use srag\DataTableUI\SrSelfDeclaration\Component\Table;
  * Interface DataFetcher
  *
  * @package srag\DataTableUI\SrSelfDeclaration\Component\Data\Fetcher
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 interface DataFetcher
 {

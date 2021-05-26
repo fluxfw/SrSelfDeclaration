@@ -11,8 +11,6 @@ use srag\DIC\SrSelfDeclaration\DICTrait;
  * Class AbstractDataFetcher
  *
  * @package srag\DataTableUI\SrSelfDeclaration\Implementation\Data\Fetcher
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractDataFetcher implements DataFetcher
 {

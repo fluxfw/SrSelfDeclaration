@@ -17,8 +17,6 @@ use srag\Plugins\SrSelfDeclaration\Utils\SrSelfDeclarationTrait;
  * Class TableBuilder
  *
  * @package srag\Plugins\SrSelfDeclaration\Declaration\Table
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class TableBuilder extends AbstractTableBuilder
 {

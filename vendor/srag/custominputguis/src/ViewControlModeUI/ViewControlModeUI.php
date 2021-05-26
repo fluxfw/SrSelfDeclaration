@@ -9,8 +9,6 @@ use srag\DIC\SrSelfDeclaration\DICTrait;
  * Class ViewControlModeUI
  *
  * @package srag\CustomInputGUIs\SrSelfDeclaration\ViewControlModeUI
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class ViewControlModeUI
 {

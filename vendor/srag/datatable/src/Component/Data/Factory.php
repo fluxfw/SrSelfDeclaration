@@ -10,8 +10,6 @@ use srag\DataTableUI\SrSelfDeclaration\Component\Data\Row\RowData;
  * Interface Factory
  *
  * @package srag\DataTableUI\SrSelfDeclaration\Component\Data
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 interface Factory
 {

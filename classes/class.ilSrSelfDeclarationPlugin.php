@@ -11,8 +11,6 @@ use srag\RemovePluginDataConfirm\SrSelfDeclaration\PluginUninstallTrait;
 
 /**
  * Class ilSrSelfDeclarationPlugin
- *
- * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class ilSrSelfDeclarationPlugin extends ilUserInterfaceHookPlugin
 {

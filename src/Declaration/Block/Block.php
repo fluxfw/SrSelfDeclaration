@@ -141,9 +141,7 @@ class Block extends ilBlockGUI
     {
         $this->setTitle(self::plugin()->translate("declaration", DeclarationCtrl::LANG_MODULE));
 
-        if (self::version()->is6()) {
-            $this->new_rendering = true;
-        }
+        $this->new_rendering = true;
     }
 
 

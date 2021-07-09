@@ -58,7 +58,7 @@ final class Repository
     /**
      * @internal
      */
-    public function dropTables()/* : void*/
+    public function dropTables() : void
     {
         self::dic()->database()->dropTable(GlobalConfig::TABLE_NAME, false);
     }
@@ -112,7 +112,7 @@ final class Repository
     /**
      * @internal
      */
-    public function installTables()/* : void*/
+    public function installTables() : void
     {
         GlobalConfig::updateDB();
     }
@@ -121,7 +121,7 @@ final class Repository
     /**
      * @param GlobalConfig $global_config
      */
-    public function storeGlobalConfig(GlobalConfig $global_config)/* : void*/
+    public function storeGlobalConfig(GlobalConfig $global_config) : void
     {
         $global_config->store();
 

@@ -57,7 +57,7 @@ class DeclarationCtrl
     /**
      *
      */
-    public function executeCommand()/* : void*/
+    public function executeCommand() : void
     {
         $this->obj_ref_id = intval(filter_input(INPUT_GET, self::GET_PARAM_REF_ID));
 
@@ -97,7 +97,7 @@ class DeclarationCtrl
     /**
      *
      */
-    protected function back()/* : void*/
+    protected function back() : void
     {
         self::dic()->ctrl()->redirectToURL(ilLink::_getLink($this->obj->getRefId()));
     }
@@ -106,7 +106,7 @@ class DeclarationCtrl
     /**
      *
      */
-    protected function fillDeclaration()/* : void*/
+    protected function fillDeclaration() : void
     {
         if (self::srSelfDeclaration()->declarations()->hasDeclaration($this->declaration)) {
             self::dic()->ctrl()->redirect($this, self::CMD_BACK);
@@ -125,7 +125,7 @@ class DeclarationCtrl
     /**
      *
      */
-    protected function saveDeclaration()/* : void*/
+    protected function saveDeclaration() : void
     {
         if (self::srSelfDeclaration()->declarations()->hasDeclaration($this->declaration)) {
             self::dic()->ctrl()->redirect($this, self::CMD_BACK);
@@ -152,7 +152,7 @@ class DeclarationCtrl
     /**
      *
      */
-    protected function setTabs()/* : void*/
+    protected function setTabs() : void
     {
         self::dic()->tabs()->clearTargets();
     }

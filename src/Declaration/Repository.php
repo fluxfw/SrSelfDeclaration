@@ -65,7 +65,7 @@ final class Repository
     /**
      * @internal
      */
-    public function dropTables()/* : void*/
+    public function dropTables() : void
     {
         self::dic()->database()->dropTable(Declaration::TABLE_NAME, false);
     }
@@ -197,7 +197,7 @@ final class Repository
     /**
      * @internal
      */
-    public function installTables()/* : void*/
+    public function installTables() : void
     {
         Declaration::updateDB();
     }
@@ -206,7 +206,7 @@ final class Repository
     /**
      * @param Declaration $declaration
      */
-    public function storeDeclaration(Declaration $declaration)/* : void*/
+    public function storeDeclaration(Declaration $declaration) : void
     {
         $declaration->store();
 

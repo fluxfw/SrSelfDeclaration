@@ -119,6 +119,7 @@ class ComposerStaticInit0a2e008f1e9bc1f2e1ba97103d586353
         'srag\\DIC\\SrSelfDeclaration\\DIC\\AbstractDIC' => __DIR__ . '/..' . '/srag/dic/src/DIC/AbstractDIC.php',
         'srag\\DIC\\SrSelfDeclaration\\DIC\\DICInterface' => __DIR__ . '/..' . '/srag/dic/src/DIC/DICInterface.php',
         'srag\\DIC\\SrSelfDeclaration\\DIC\\Implementation\\ILIAS60DIC' => __DIR__ . '/..' . '/srag/dic/src/DIC/Implementation/ILIAS60DIC.php',
+        'srag\\DIC\\SrSelfDeclaration\\DIC\\Implementation\\ILIAS70DIC' => __DIR__ . '/..' . '/srag/dic/src/DIC/Implementation/ILIAS70DIC.php',
         'srag\\DIC\\SrSelfDeclaration\\Database\\AbstractILIASDatabaseDetector' => __DIR__ . '/..' . '/srag/dic/src/Database/AbstractILIASDatabaseDetector.php',
         'srag\\DIC\\SrSelfDeclaration\\Database\\DatabaseDetector' => __DIR__ . '/..' . '/srag/dic/src/Database/DatabaseDetector.php',
         'srag\\DIC\\SrSelfDeclaration\\Database\\DatabaseInterface' => __DIR__ . '/..' . '/srag/dic/src/Database/DatabaseInterface.php',

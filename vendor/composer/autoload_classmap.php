@@ -60,6 +60,7 @@ return array(
     'srag\\DIC\\SrSelfDeclaration\\DIC\\AbstractDIC' => $vendorDir . '/srag/dic/src/DIC/AbstractDIC.php',
     'srag\\DIC\\SrSelfDeclaration\\DIC\\DICInterface' => $vendorDir . '/srag/dic/src/DIC/DICInterface.php',
     'srag\\DIC\\SrSelfDeclaration\\DIC\\Implementation\\ILIAS60DIC' => $vendorDir . '/srag/dic/src/DIC/Implementation/ILIAS60DIC.php',
+    'srag\\DIC\\SrSelfDeclaration\\DIC\\Implementation\\ILIAS70DIC' => $vendorDir . '/srag/dic/src/DIC/Implementation/ILIAS70DIC.php',
     'srag\\DIC\\SrSelfDeclaration\\Database\\AbstractILIASDatabaseDetector' => $vendorDir . '/srag/dic/src/Database/AbstractILIASDatabaseDetector.php',
     'srag\\DIC\\SrSelfDeclaration\\Database\\DatabaseDetector' => $vendorDir . '/srag/dic/src/Database/DatabaseDetector.php',
     'srag\\DIC\\SrSelfDeclaration\\Database\\DatabaseInterface' => $vendorDir . '/srag/dic/src/Database/DatabaseInterface.php',

@@ -103,7 +103,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data)/* : void*/
+    protected function storeData(array $data) : void
     {
         $this->declaration->setText(strval($data["text"]));
         $this->declaration->setEffort(intval($data["effort"]));
@@ -142,7 +142,7 @@ class FormBuilder extends AbstractFormBuilder
             }
         }
 
-        Closure::bind(function (array $inputs)/* : void*/ {
+        Closure::bind(function (array $inputs) : void {
             $this->inputs = $inputs;
         }, $this->form->getInputs()["form"], Group::class)($inputs);
 

@@ -127,7 +127,7 @@ class ObjectConfig extends ActiveRecord
     /**
      * @param array $default_texts
      */
-    public function setDefaultTexts(array $default_texts)/* : void*/
+    public function setDefaultTexts(array $default_texts) : void
     {
         $this->default_texts = $default_texts;
     }
@@ -145,7 +145,7 @@ class ObjectConfig extends ActiveRecord
     /**
      * @return ilObject|null
      */
-    public function getObj()/* : ?ilObject*/
+    public function getObj() : ?ilObject
     {
         return self::srSelfDeclaration()->objects()->getObjById($this->obj_id);
     }
@@ -163,7 +163,7 @@ class ObjectConfig extends ActiveRecord
     /**
      * @param int $obj_id
      */
-    public function setObjId(int $obj_id)/* : void*/
+    public function setObjId(int $obj_id) : void
     {
         $this->obj_id = $obj_id;
     }
@@ -190,7 +190,7 @@ class ObjectConfig extends ActiveRecord
     /**
      * @param bool $enabled
      */
-    public function setEnabled(bool $enabled)/* : void*/
+    public function setEnabled(bool $enabled) : void
     {
         $this->enabled = $enabled;
     }
@@ -200,7 +200,7 @@ class ObjectConfig extends ActiveRecord
      * @param string $default_text
      * @param string $lang_key
      */
-    public function setDefaultText(string $default_text, string $lang_key)/* : void*/
+    public function setDefaultText(string $default_text, string $lang_key) : void
     {
         MultilangualTabsInputGUI::setValueForLang($this->default_texts, $default_text, $lang_key, "default_text");
     }
@@ -209,7 +209,7 @@ class ObjectConfig extends ActiveRecord
     /**
      * @param int $max_effort
      */
-    public function setMaxEffort(int $max_effort)/* : void*/
+    public function setMaxEffort(int $max_effort) : void
     {
         $this->default_effort = $max_effort;
     }
@@ -218,7 +218,7 @@ class ObjectConfig extends ActiveRecord
     /**
      * @param int $object_config_id
      */
-    public function setObjectConfigId(int $object_config_id)/* : void*/
+    public function setObjectConfigId(int $object_config_id) : void
     {
         $this->config_id = $object_config_id;
     }

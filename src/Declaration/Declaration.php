@@ -124,7 +124,7 @@ class Declaration extends ActiveRecord
     /**
      * @param int $declaration_id
      */
-    public function setDeclarationId(int $declaration_id)/* : void*/
+    public function setDeclarationId(int $declaration_id) : void
     {
         $this->declaration_id = $declaration_id;
     }
@@ -154,7 +154,7 @@ class Declaration extends ActiveRecord
     /**
      * @param int $effort
      */
-    public function setEffort(int $effort)/* : void*/
+    public function setEffort(int $effort) : void
     {
         $this->effort = $effort;
     }
@@ -172,7 +172,7 @@ class Declaration extends ActiveRecord
     /**
      * @param string $effort_reason
      */
-    public function setEffortReason(string $effort_reason)/* : void*/
+    public function setEffortReason(string $effort_reason) : void
     {
         $this->effort_reason = $effort_reason;
     }
@@ -190,7 +190,7 @@ class Declaration extends ActiveRecord
     /**
      * @return ilObject|null
      */
-    public function getObj()/* : ?ilObject*/
+    public function getObj() : ?ilObject
     {
         return self::srSelfDeclaration()->objects()->getObjById($this->obj_id);
     }
@@ -208,7 +208,7 @@ class Declaration extends ActiveRecord
     /**
      * @param int $obj_id
      */
-    public function setObjId(int $obj_id)/* : void*/
+    public function setObjId(int $obj_id) : void
     {
         $this->obj_id = $obj_id;
     }
@@ -235,7 +235,7 @@ class Declaration extends ActiveRecord
     /**
      * @param string $text
      */
-    public function setText(string $text)/* : void*/
+    public function setText(string $text) : void
     {
         $this->text = $text;
     }
@@ -244,7 +244,7 @@ class Declaration extends ActiveRecord
     /**
      * @return ilObjUser|null
      */
-    public function getUsr()/* : ?ilObjUser*/
+    public function getUsr() : ?ilObjUser
     {
         return self::srSelfDeclaration()->objects()->getObjById($this->usr_id);
     }
@@ -262,7 +262,7 @@ class Declaration extends ActiveRecord
     /**
      * @param int $usr_id
      */
-    public function setUsrId(int $usr_id)/* : void*/
+    public function setUsrId(int $usr_id) : void
     {
         $this->usr_id = $usr_id;
     }

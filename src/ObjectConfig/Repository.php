@@ -61,7 +61,7 @@ final class Repository
     /**
      * @internal
      */
-    public function dropTables()/* : void*/
+    public function dropTables() : void
     {
         self::dic()->database()->dropTable(ObjectConfig::TABLE_NAME, false);
     }
@@ -126,7 +126,7 @@ final class Repository
     /**
      * @internal
      */
-    public function installTables()/* : void*/
+    public function installTables() : void
     {
         ObjectConfig::updateDB();
     }
@@ -150,7 +150,7 @@ final class Repository
     /**
      * @param ObjectConfig $object_config
      */
-    public function storeObjectConfig(ObjectConfig $object_config)/* : void*/
+    public function storeObjectConfig(ObjectConfig $object_config) : void
     {
         $object_config->store();
 

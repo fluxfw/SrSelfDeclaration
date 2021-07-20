@@ -32,7 +32,7 @@ class ilSrSelfDeclarationConfigGUI extends ilPluginConfigGUI
     /**
      * @inheritDoc
      */
-    public function performCommand(/*string*/ $cmd)/*:void*/
+    public function performCommand(/*string*/ $cmd) : void
     {
         $this->setTabs();
 
@@ -66,7 +66,7 @@ class ilSrSelfDeclarationConfigGUI extends ilPluginConfigGUI
     /**
      *
      */
-    protected function configure()/*: void*/
+    protected function configure() : void
     {
         self::dic()->ctrl()->redirectByClass(GlobalConfigCtrl::class, GlobalConfigCtrl::CMD_EDIT_GLOBAL_CONFIG);
     }
@@ -75,7 +75,7 @@ class ilSrSelfDeclarationConfigGUI extends ilPluginConfigGUI
     /**
      *
      */
-    protected function setTabs()/*: void*/
+    protected function setTabs() : void
     {
         GlobalConfigCtrl::addTabs();
 

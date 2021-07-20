@@ -54,7 +54,7 @@ class Block extends ilBlockGUI
     /**
      * @inheritDoc
      */
-    public function fillDataSection()/*: void*/
+    public function fillDataSection() : void
     {
         $this->setDataSection($this->getDeclaration());
     }
@@ -137,13 +137,11 @@ class Block extends ilBlockGUI
     /**
      *
      */
-    protected function initBlock()/*: void*/
+    protected function initBlock() : void
     {
         $this->setTitle(self::plugin()->translate("declaration", DeclarationCtrl::LANG_MODULE));
 
-        if (self::version()->is6()) {
-            $this->new_rendering = true;
-        }
+        $this->new_rendering = true;
     }
 
 

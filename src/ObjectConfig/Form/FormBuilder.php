@@ -101,7 +101,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data)/* : void*/
+    protected function storeData(array $data) : void
     {
         $this->object_config->setEnabled(boolval($data["enabled"]));
         $this->object_config->setDefaultTexts((array) $data["default_texts"]);

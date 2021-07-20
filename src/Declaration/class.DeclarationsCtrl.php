@@ -57,7 +57,7 @@ class DeclarationsCtrl
     /**
      * @param int $obj_ref_id
      */
-    public static function addTabs(int $obj_ref_id)/* : void*/
+    public static function addTabs(int $obj_ref_id) : void
     {
         if (self::srSelfDeclaration()->declarations()->hasAccessToDeclarationsOfObject($obj_ref_id, self::dic()->user()->getId())) {
             self::dic()->ctrl()->setParameterByClass(self::class, self::GET_PARAM_REF_ID, $obj_ref_id);
@@ -73,7 +73,7 @@ class DeclarationsCtrl
     /**
      *
      */
-    public function executeCommand()/* : void*/
+    public function executeCommand() : void
     {
         $this->obj_ref_id = intval(filter_input(INPUT_GET, self::GET_PARAM_REF_ID));
 
@@ -112,7 +112,7 @@ class DeclarationsCtrl
     /**
      *
      */
-    protected function back()/* : void*/
+    protected function back() : void
     {
         self::dic()->ctrl()->redirectToURL(ilLink::_getLink($this->obj->getRefId()));
     }
@@ -121,7 +121,7 @@ class DeclarationsCtrl
     /**
      *
      */
-    protected function listDeclarations()/* : void*/
+    protected function listDeclarations() : void
     {
         self::dic()->tabs()->activateTab(self::TAB_LIST_DECLARATIONS);
 
@@ -134,7 +134,7 @@ class DeclarationsCtrl
     /**
      *
      */
-    protected function setTabs()/* : void*/
+    protected function setTabs() : void
     {
         self::dic()->tabs()->clearTargets();
 

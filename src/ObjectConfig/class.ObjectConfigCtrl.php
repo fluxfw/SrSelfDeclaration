@@ -58,7 +58,7 @@ class ObjectConfigCtrl
     /**
      * @param int $obj_ref_id
      */
-    public static function addTabs(int $obj_ref_id)/* : void*/
+    public static function addTabs(int $obj_ref_id) : void
     {
         if (self::srSelfDeclaration()->objectConfigs()->hasAccess($obj_ref_id, self::dic()->user()->getId())) {
             self::dic()->ctrl()->setParameterByClass(self::class, self::GET_PARAM_REF_ID, $obj_ref_id);
@@ -74,7 +74,7 @@ class ObjectConfigCtrl
     /**
      *
      */
-    public function executeCommand()/* : void*/
+    public function executeCommand() : void
     {
         $this->obj_ref_id = intval(filter_input(INPUT_GET, self::GET_PARAM_REF_ID));
 
@@ -114,7 +114,7 @@ class ObjectConfigCtrl
     /**
      *
      */
-    protected function back()/* : void*/
+    protected function back() : void
     {
         self::dic()->ctrl()->redirectToURL(ilLink::_getLink($this->obj->getRefId()));
     }
@@ -123,7 +123,7 @@ class ObjectConfigCtrl
     /**
      *
      */
-    protected function editObjectConfig()/* : void*/
+    protected function editObjectConfig() : void
     {
         self::dic()->tabs()->activateTab(self::TAB_EDIT_OBJECT_CONFIG);
 
@@ -136,7 +136,7 @@ class ObjectConfigCtrl
     /**
      *
      */
-    protected function setTabs()/* : void*/
+    protected function setTabs() : void
     {
         self::dic()->tabs()->clearTargets();
 
@@ -151,7 +151,7 @@ class ObjectConfigCtrl
     /**
      *
      */
-    protected function updateObjectConfig()/* : void*/
+    protected function updateObjectConfig() : void
     {
         self::dic()->tabs()->activateTab(self::TAB_EDIT_OBJECT_CONFIG);
 

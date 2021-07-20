@@ -45,7 +45,7 @@ class GlobalConfigCtrl
     /**
      *
      */
-    public static function addTabs()/* : void*/
+    public static function addTabs() : void
     {
         if (self::srSelfDeclaration()->globalConfig()->hasAccess(self::dic()->user()->getId())) {
             self::dic()
@@ -59,7 +59,7 @@ class GlobalConfigCtrl
     /**
      *
      */
-    public function executeCommand()/* : void*/
+    public function executeCommand() : void
     {
         if (!self::srSelfDeclaration()->globalConfig()->hasAccess(self::dic()->user()->getId())) {
             die();
@@ -92,7 +92,7 @@ class GlobalConfigCtrl
     /**
      *
      */
-    protected function editGlobalConfig()/* : void*/
+    protected function editGlobalConfig() : void
     {
         self::dic()->tabs()->activateTab(self::TAB_EDIT_GLOBAL_CONFIG);
 
@@ -105,7 +105,7 @@ class GlobalConfigCtrl
     /**
      *
      */
-    protected function setTabs()/* : void*/
+    protected function setTabs() : void
     {
 
     }
@@ -114,7 +114,7 @@ class GlobalConfigCtrl
     /**
      *
      */
-    protected function updateGlobalConfig()/* : void*/
+    protected function updateGlobalConfig() : void
     {
         self::dic()->tabs()->activateTab(self::TAB_EDIT_GLOBAL_CONFIG);
 

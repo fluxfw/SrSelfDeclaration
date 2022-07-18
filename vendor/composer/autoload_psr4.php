@@ -10,7 +10,6 @@ return array(
     'srag\\Plugins\\SrSelfDeclaration\\' => array($baseDir . '/src'),
     'srag\\LibraryLanguageInstaller\\SrSelfDeclaration\\' => array($vendorDir . '/srag/librarylanguageinstaller/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
-    'srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\' => array($vendorDir . '/srag/generateplugininfoshelper/src'),
     'srag\\DevTools\\SrSelfDeclaration\\' => array($vendorDir . '/srag/devtools/src'),
     'srag\\DataTableUI\\SrSelfDeclaration\\' => array($vendorDir . '/srag/datatable/src'),
     'srag\\DIC\\SrSelfDeclaration\\' => array($vendorDir . '/srag/dic/src'),

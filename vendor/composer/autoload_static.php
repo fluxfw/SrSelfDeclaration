@@ -17,7 +17,6 @@ class ComposerStaticInit0a2e008f1e9bc1f2e1ba97103d586353
             'srag\\Plugins\\SrSelfDeclaration\\' => 31,
             'srag\\LibraryLanguageInstaller\\SrSelfDeclaration\\' => 48,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\' => 49,
             'srag\\DevTools\\SrSelfDeclaration\\' => 32,
             'srag\\DataTableUI\\SrSelfDeclaration\\' => 35,
             'srag\\DIC\\SrSelfDeclaration\\' => 27,
@@ -41,10 +40,6 @@ class ComposerStaticInit0a2e008f1e9bc1f2e1ba97103d586353
         'srag\\LibrariesNamespaceChanger\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
-        ),
-        'srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src',
         ),
         'srag\\DevTools\\SrSelfDeclaration\\' => 
         array (
@@ -208,9 +203,6 @@ class ComposerStaticInit0a2e008f1e9bc1f2e1ba97103d586353
         'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Utils\\AbstractTableBuilder' => __DIR__ . '/..' . '/srag/datatable/src/Implementation/Utils/AbstractTableBuilder.php',
         'srag\\DataTableUI\\SrSelfDeclaration\\Implementation\\Utils\\DataTableUITrait' => __DIR__ . '/..' . '/srag/datatable/src/Implementation/Utils/DataTableUITrait.php',
         'srag\\DevTools\\SrSelfDeclaration\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/devtools/src/class.DevToolsCtrl.php',
-        'srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginPhpAndXml.php',
-        'srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginReadme.php',
-        'srag\\GeneratePluginInfosHelper\\SrSelfDeclaration\\UpdateVersion' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/UpdateVersion.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibraryLanguageInstaller\\SrSelfDeclaration\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/librarylanguageinstaller/src/LibraryLanguageInstaller.php',
         'srag\\Plugins\\SrSelfDeclaration\\Declaration\\Block\\Block' => __DIR__ . '/../..' . '/src/Declaration/Block/Block.php',
